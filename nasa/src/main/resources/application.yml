@@ -5,8 +5,12 @@ spring:
     username: postgres
     password: password
     url: jdbc:postgresql://localhost:5432/postgres
-    hikari:
-      username:
+  jpa:
+    hibernate:
+      ddl-auto: create
+    properties:
+      hibernate:
+        show_sql: true
 
 # Swagger
 springdoc:
@@ -15,10 +19,11 @@ springdoc:
     tags-sorter: alpha
     operations-sorter: method
     disable-swagger-default-url: true
+    path: /swagger-ui
   api-docs:
     path: /api-docs
-  default-consumes-media-type: application/json
-  default-produces-media-type: application/json
+  default-consumes-media-type: application/json;charset=UTF-8
+  default-produces-media-type: application/json;charset=UTF-8
   writer-with-default-pretty-printer: true
   model-and-view-allowed: true
   paths-to-match:
