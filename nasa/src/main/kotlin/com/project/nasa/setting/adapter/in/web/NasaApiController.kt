@@ -26,7 +26,7 @@ class NasaApiController(
     @Operation(summary = "APOD 받기" , description = "APOD = Astronomy Picture of the Day")
     @Description("API로부터 APOD를 받고 DB에 저장한다")
     @GetMapping("/apod")
-    fun getAndjoinApi(@RequestParam("date") date : LocalDate): ResponseEntity<ResponseApod> {
+    fun getAndJoinApi(@RequestParam("date") date : LocalDate): ResponseEntity<ResponseApod> {
         var apod : ResponseApod? = apodService.getByDate(date)
         if(apod == null){
             apod = apiUseCase.getApod("https://api.nasa.gov/planetary/apod", date)
