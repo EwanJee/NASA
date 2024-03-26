@@ -4,10 +4,10 @@ spring:
     driver-class-name: org.postgresql.Driver
     username: postgres
     password: password
-    url: jdbc:postgresql://localhost:5432/postgres
+    url: jdbc:postgresql://localhost:5432/nasa
   jpa:
     hibernate:
-      ddl-auto: create
+      ddl-auto: update
     properties:
       hibernate:
         show_sql: true
@@ -32,6 +32,10 @@ springdoc:
 jwt:
   secret:
     key: 'd'
+
+openApi:
+  key: GPmcLoxilFPdfbPPcPg2fSeHxnJOl3rCc0mwQ6JA
+
 
 # https://api.nasa.gov/
 # GPmcLoxilFPdfbPPcPg2fSeHxnJOl3rCc0mwQ6JA
