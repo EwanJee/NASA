@@ -6,7 +6,9 @@ import com.project.nasa.setting.application.port.`in`.dto.request.RequestApod
 import com.project.nasa.setting.application.port.`in`.dto.response.ResponseApod
 import io.swagger.v3.oas.annotations.Operation
 import io.swagger.v3.oas.annotations.tags.Tag
+import lombok.extern.slf4j.Slf4j
 import org.springframework.context.annotation.Description
+import org.springframework.format.annotation.DateTimeFormat
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RequestMapping
@@ -26,7 +28,7 @@ class NasaApiController(
     @Operation(summary = "APOD 받기" , description = "APOD = Astronomy Picture of the Day")
     @Description("API로부터 APOD를 받고 DB에 저장한다")
     @GetMapping("/apod")
-    fun getAndJoinApi(@RequestParam("date") date : LocalDate): ResponseEntity<ResponseApod> {
+    fun getAndJoinApi(@RequestParam("date") @DateTimeFormat(pattern = "yyyy-MM-dd") date : LocalDate): ResponseEntity<ResponseApod> {
         var apod : ResponseApod? = apodService.getByDate(date)
         if(apod == null){
             apod = apiUseCase.getApod("https://api.nasa.gov/planetary/apod", date)

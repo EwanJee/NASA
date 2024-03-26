@@ -5,9 +5,12 @@ spring:
     username: postgres
     password: password
     url: jdbc:postgresql://localhost:5432/nasa
+  mvc:
+    format:
+      date: yyyy-MM-dd
   jpa:
     hibernate:
-      ddl-auto: update
+      ddl-auto: create
     properties:
       hibernate:
         show_sql: true
