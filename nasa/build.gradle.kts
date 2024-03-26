@@ -45,8 +45,8 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-webflux")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-reactor")
     implementation("io.projectreactor.kotlin:reactor-kotlin-extensions")
-    //Netty 라이브러리의 macOS DNS해석
-    implementation("io.netty:netty-resolver-dns-native-macos:4.1.68.Final")
+    //Netty 라이브러리의 macOS DNS해석 io.netty:netty-resolver-dns-native-macos
+    implementation("io.netty:netty-resolver-dns-native-macos")
 
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")
     implementation("org.springframework.boot:spring-boot-starter-mail")

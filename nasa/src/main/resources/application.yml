@@ -1,5 +1,7 @@
 # db 설정
 spring:
+  profiles:
+    include: secret
   datasource:
     driver-class-name: org.postgresql.Driver
     username: postgres
@@ -31,15 +33,3 @@ springdoc:
   model-and-view-allowed: true
   paths-to-match:
     - /api/v1/**
-
-jwt:
-  secret:
-    key: 'd'
-
-openApi:
-  key: GPmcLoxilFPdfbPPcPg2fSeHxnJOl3rCc0mwQ6JA
-
-
-# https://api.nasa.gov/
-# GPmcLoxilFPdfbPPcPg2fSeHxnJOl3rCc0mwQ6JA
-# https://api.nasa.gov/planetary/apod?api_key=GPmcLoxilFPdfbPPcPg2fSeHxnJOl3rCc0mwQ6JA
