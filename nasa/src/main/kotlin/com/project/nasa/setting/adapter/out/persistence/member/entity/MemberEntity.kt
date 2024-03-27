@@ -5,11 +5,12 @@ import jakarta.persistence.Entity
 import jakarta.persistence.GeneratedValue
 import jakarta.persistence.GenerationType
 import jakarta.persistence.Id
+import jakarta.persistence.Table
 import jakarta.validation.constraints.Email
 import jakarta.validation.constraints.Min
 import org.springframework.data.annotation.CreatedDate
 import java.time.LocalDateTime
-
+@Table(name = "MEMBER")
 @Entity
 class MemberEntity(
     @Id @GeneratedValue(strategy = GenerationType.AUTO)

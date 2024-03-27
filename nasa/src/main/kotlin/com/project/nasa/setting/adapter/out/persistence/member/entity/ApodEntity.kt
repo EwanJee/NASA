@@ -8,7 +8,7 @@ import org.springframework.format.annotation.DateTimeFormat
 import java.time.LocalDate
 
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-@Table(name = "APODENTITY")
+@Table(name = "APOD")
 @Entity
 class ApodEntity(
     @Id @GeneratedValue(strategy = GenerationType.AUTO)

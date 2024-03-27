@@ -1,6 +1,6 @@
 package com.project.nasa.setting.adapter.`in`.web
 
-import com.project.nasa.setting.adapter.out.persistence.member.service.ApodService
+import com.project.nasa.setting.adapter.out.persistence.member.service.ApodAdapter
 import com.project.nasa.setting.application.port.`in`.NasaApiUseCase
 import com.project.nasa.setting.application.port.`in`.dto.response.ResponseApod
 import io.swagger.v3.oas.annotations.Operation
@@ -19,16 +19,16 @@ import java.time.LocalDate
 @RestController
 class NasaApiController(
     val apiUseCase: NasaApiUseCase,
-    val apodService: ApodService
+    val apodAdapter: ApodAdapter
 ) {
     @Operation(summary = "APOD 받기" , description = "APOD = Astronomy Picture of the Day")
     @Description("API로부터 APOD를 받고 DB에 저장한다")
     @GetMapping("/apod")
     fun getAndJoinApi(@RequestParam("date") @DateTimeFormat(pattern = "yyyy-MM-dd") date : LocalDate): ResponseEntity<ResponseApod> {
-        var apod : ResponseApod? = apodService.getByDate(date)
+        var apod : ResponseApod? = apodAdapter.getByDate(date)
         if(apod == null){
             apod = apiUseCase.getApod("https://api.nasa.gov/planetary/apod", date)
-            apod = apodService.join(apod)
+            apod = apodAdapter.join(apod)
         }
         return ResponseEntity.ok(apod)
     }

@@ -1,6 +1,6 @@
 package com.project.nasa.setting.adapter.`in`.web
 
-import com.project.nasa.setting.adapter.out.persistence.member.service.ApodService
+import com.project.nasa.setting.adapter.out.persistence.member.service.ApodAdapter
 import com.project.nasa.setting.application.port.`in`.GptUseCase
 import io.swagger.v3.oas.annotations.tags.Tag
 import org.springframework.http.ResponseEntity
@@ -14,14 +14,14 @@ import org.springframework.web.bind.annotation.RestController
 @RequestMapping("api/v1/nasa")
 @RestController
 class GptController(
-    private val apodService: ApodService,
+    private val apodAdapter: ApodAdapter,
     private val gptUseCase: GptUseCase
 
 ) {
     @GetMapping("/apod/{id}")
     fun updateTranslationInfo(@PathVariable("id") id: Long, @RequestParam("lang") lang : String) : ResponseEntity<String> {
-        val translated : String = gptUseCase.translateByLanguage(lang, apodService.getExplanationById(id))
-        val updateTranslation = apodService.updateTranslation(id, translated)
+        val translated : String = gptUseCase.translateByLanguage(lang, apodAdapter.getExplanationById(id))
+        val updateTranslation = apodAdapter.updateTranslation(id, translated)
         return ResponseEntity.ok(updateTranslation)
     }
 }

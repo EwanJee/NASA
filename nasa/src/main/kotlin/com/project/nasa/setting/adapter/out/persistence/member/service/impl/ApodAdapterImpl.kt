@@ -2,7 +2,7 @@ package com.project.nasa.setting.adapter.out.persistence.member.service.impl
 
 import com.project.nasa.setting.adapter.out.persistence.member.entity.ApodEntity
 import com.project.nasa.setting.adapter.out.persistence.member.repository.ApodRepository
-import com.project.nasa.setting.adapter.out.persistence.member.service.ApodService
+import com.project.nasa.setting.adapter.out.persistence.member.service.ApodAdapter
 import com.project.nasa.setting.application.port.`in`.dto.response.ResponseApod
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
@@ -10,9 +10,9 @@ import java.time.LocalDate
 
 @Transactional(readOnly = true)
 @Service
-class ApodServiceImpl(
+class ApodAdapterImpl(
     private val apodRepository: ApodRepository
-) : ApodService {
+) : ApodAdapter {
     override fun getByDate(date: LocalDate): ResponseApod? {
         val apodEntity: ApodEntity = apodRepository.findByDate(date) ?: return null
         return ResponseApod(
