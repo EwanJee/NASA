@@ -10,4 +10,5 @@ interface ApodAdapter {
     fun join(responseApod: ResponseApod): ResponseApod
     fun getExplanationById(id: Long): String
     fun updateTranslation(id: Long, translated: String) : String
+    fun addOnetoStarPoint(id : Long) : Long
 }

@@ -2,7 +2,7 @@ package com.project.nasa.setting.application.port.`in`.dto.response
 
 import java.time.LocalDate
 
-class ResponseApod(
+open class ResponseApod(
     var id : Long?,
     val date: LocalDate,
     val explanation: String,

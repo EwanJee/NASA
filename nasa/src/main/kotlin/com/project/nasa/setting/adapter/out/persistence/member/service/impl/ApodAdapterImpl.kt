@@ -25,9 +25,10 @@ class ApodAdapterImpl(
             url = apodEntity.url
         )
     }
+
     @Transactional
     override fun join(responseApod: ResponseApod): ResponseApod {
-        val apodEntity: ApodEntity = ApodEntity(
+        val apodEntity = ApodEntity(
             date = responseApod.date,
             explanation = responseApod.explanation,
             media_type = responseApod.media_type,
@@ -47,9 +48,16 @@ class ApodAdapterImpl(
     @Transactional
     override fun updateTranslation(id: Long, translated: String): String {
         val stored = apodRepository.findById(id).orElseThrow { IllegalArgumentException("해당 정보가 존재하지 않습니다") }
-        if(stored.explanation.isBlank()) return stored.translatedExplanation!!
+        if (stored.explanation.isBlank()) return stored.translatedExplanation!!
         stored.updateTranslation(translated)
         val translatedExplanation = stored.translatedExplanation ?: throw IllegalArgumentException("")
         return translatedExplanation
+    }
+
+    @Transactional
+    override fun addOnetoStarPoint(id: Long): Long {
+        val stored: ApodEntity = apodRepository.findById(id)
+            .orElseThrow({ IllegalArgumentException("해당 정보가 존재하지 않습니다") })
+        return stored.addOneToStarPoint()
     }
 }
