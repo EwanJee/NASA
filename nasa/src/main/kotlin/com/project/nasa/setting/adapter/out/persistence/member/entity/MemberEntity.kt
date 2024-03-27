@@ -10,6 +10,7 @@ import jakarta.validation.constraints.Email
 import jakarta.validation.constraints.Min
 import org.springframework.data.annotation.CreatedDate
 import java.time.LocalDateTime
+
 @Table(name = "MEMBER")
 @Entity
 class MemberEntity(
@@ -27,8 +28,8 @@ class MemberEntity(
     @CreatedDate
     @Column(name = "created")
     val created: LocalDateTime
-){
-    fun updateNickname(name : String){
+) {
+    fun updateNickname(name: String) {
         this.nickname = name
     }
 }

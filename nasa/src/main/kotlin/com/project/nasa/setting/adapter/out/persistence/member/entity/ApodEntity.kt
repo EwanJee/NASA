@@ -31,12 +31,13 @@ class ApodEntity(
     @Column(name = "translated_explanation", length = 2000)
     var translatedExplanation: String? = null,
     @Column(name = "star_point")
-    var starPoint : Long = 0
-){
-    fun updateTranslation(explanation : String){
+    var starPoint: Long = 0
+) {
+    fun updateTranslation(explanation: String) {
         this.translatedExplanation = explanation
     }
-    fun addOneToStarPoint() : Long{
+
+    fun addOneToStarPoint(): Long {
         val updated = this.starPoint++
         return updated
     }

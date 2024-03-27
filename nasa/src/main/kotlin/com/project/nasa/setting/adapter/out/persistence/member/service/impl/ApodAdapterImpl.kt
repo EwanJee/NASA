@@ -1,7 +1,7 @@
 package com.project.nasa.setting.adapter.out.persistence.member.service.impl
 
 import com.project.nasa.setting.adapter.out.persistence.member.entity.ApodEntity
-import com.project.nasa.setting.adapter.out.persistence.member.repository.ApodRepository
+import com.project.nasa.setting.adapter.out.persistence.member.repository.ApodEntityRepository
 import com.project.nasa.setting.adapter.out.persistence.member.service.ApodAdapter
 import com.project.nasa.setting.application.port.`in`.dto.response.ResponseApod
 import org.springframework.stereotype.Service
@@ -11,10 +11,10 @@ import java.time.LocalDate
 @Transactional(readOnly = true)
 @Service
 class ApodAdapterImpl(
-    private val apodRepository: ApodRepository
+    private val apodEntityRepository: ApodEntityRepository
 ) : ApodAdapter {
     override fun getByDate(date: LocalDate): ResponseApod? {
-        val apodEntity: ApodEntity = apodRepository.findByDate(date) ?: return null
+        val apodEntity: ApodEntity = apodEntityRepository.findByDate(date) ?: return null
         return ResponseApod(
             id = apodEntity.id,
             date = apodEntity.date,
@@ -36,18 +36,18 @@ class ApodAdapterImpl(
             title = responseApod.title,
             url = responseApod.url
         )
-        val saved = apodRepository.save(apodEntity)
+        val saved = apodEntityRepository.save(apodEntity)
         responseApod.id = saved.id
         return responseApod
     }
 
     override fun getExplanationById(id: Long): String {
-        return apodRepository.findById(id).get().explanation
+        return apodEntityRepository.findById(id).get().explanation
     }
 
     @Transactional
     override fun updateTranslation(id: Long, translated: String): String {
-        val stored = apodRepository.findById(id).orElseThrow { IllegalArgumentException("해당 정보가 존재하지 않습니다") }
+        val stored = apodEntityRepository.findById(id).orElseThrow { IllegalArgumentException("해당 정보가 존재하지 않습니다") }
         if (stored.explanation.isBlank()) return stored.translatedExplanation!!
         stored.updateTranslation(translated)
         val translatedExplanation = stored.translatedExplanation ?: throw IllegalArgumentException("")
@@ -56,7 +56,7 @@ class ApodAdapterImpl(
 
     @Transactional
     override fun addOnetoStarPoint(id: Long): Long {
-        val stored: ApodEntity = apodRepository.findById(id)
+        val stored: ApodEntity = apodEntityRepository.findById(id)
             .orElseThrow({ IllegalArgumentException("해당 정보가 존재하지 않습니다") })
         return stored.addOneToStarPoint()
     }

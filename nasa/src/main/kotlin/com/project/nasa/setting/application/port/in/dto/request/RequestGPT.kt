@@ -4,14 +4,15 @@ import com.fasterxml.jackson.annotation.JsonProperty
 
 data class RequestGPT(
     @JsonProperty("model")
-    val model : String,
+    val model: String,
     @JsonProperty("messages")
-    val messages : MutableList<Message>
-){
-    fun addMessage(message: Message){
+    val messages: MutableList<Message>
+) {
+    fun addMessage(message: Message) {
         this.messages.add(message)
     }
 }
+
 /**
  * 예시 :
  * {
@@ -30,14 +31,15 @@ data class RequestGPT(
  */
 data class Message(
     @JsonProperty("role")
-    val role : String,
+    val role: String,
     @JsonProperty("content")
-    var content : String
-){
-    fun updateContent(paragraph : String?){
-        when(this.role){
+    var content: String
+) {
+    fun updateContent(paragraph: String?) {
+        when (this.role) {
             "system" -> this.content = "You are an expert at translating English into ${this.content}"
-            "user" -> this.content = "Translate the following English-written paragraph into ${this.content} : $paragraph"
+            "user" -> this.content =
+                "Translate the following English-written paragraph into ${this.content} : $paragraph"
         }
     }
 }

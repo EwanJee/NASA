@@ -17,6 +17,9 @@ class WebClientConfig {
     @Value("\${chatGpt.key}")
     private lateinit var key: String
 
+    @Value("\${news.url}")
+    private lateinit var newsUrl: String
+
     @Bean
     fun nasaClient(): WebClient {
         return WebClient.create()
@@ -30,6 +33,13 @@ class WebClientConfig {
             .baseUrl(url)
             .defaultHeader("Content-Type", MediaType.APPLICATION_JSON_VALUE)
             .defaultHeader("Authorization", "Bearer $key")
+            .build()
+    }
+
+    @Bean
+    fun newsClient(): WebClient {
+        return WebClient.builder()
+            .baseUrl(newsUrl)
             .build()
     }
 }
