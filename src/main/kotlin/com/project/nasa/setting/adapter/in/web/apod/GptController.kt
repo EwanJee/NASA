@@ -24,7 +24,7 @@ class GptController(
 ) {
     @Operation(summary = "해당 설명문 번역하기", description = "해당 id에 해당하는 객체의 설명문을 번역한다")
     @Description("해당 id에 해당하는 객체의 설명문을 번역한다")
-    @GetMapping("/apod/{id}")
+    @GetMapping("/apod/tr/{id}")
     fun updateTranslationInfo(@PathVariable("id") id: Long, @RequestParam("lang") lang : String) : ResponseEntity<EntityModel<String>> {
         val translated : String = gptUseCase.translateByLanguage(lang, apodAdapter.getExplanationById(id))
         val updateTranslation = apodAdapter.updateTranslation(id, translated)

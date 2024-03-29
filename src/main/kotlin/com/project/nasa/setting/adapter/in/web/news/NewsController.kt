@@ -20,7 +20,7 @@ class NewsController(
 ) {
     @Operation(summary = "뉴스 불러오기", description = "q = 토픽, date = 날짜 에 맞는 뉴스 불러오기")
     @Description("뉴스 불러오기")
-    @GetMapping("")
+    @GetMapping("/")
     fun getAndJoinApi(
         @RequestParam("q") q: String,
         @RequestParam("date") @DateTimeFormat(pattern = "yyyy-MM-dd") date: LocalDate
