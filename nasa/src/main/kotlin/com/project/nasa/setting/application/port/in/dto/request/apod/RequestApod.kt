@@ -1,9 +1,8 @@
-package com.project.nasa.setting.application.port.`in`.dto.response
+package com.project.nasa.setting.application.port.`in`.dto.request.apod
 
 import java.time.LocalDate
 
-open class ResponseApod(
-    var id: Long?,
+class RequestApod(
     val date: LocalDate,
     val explanation: String,
     val media_type: String,

@@ -1,7 +1,7 @@
-package com.project.nasa.setting.application.service
+package com.project.nasa.setting.application.service.apod
 
-import com.project.nasa.setting.application.port.`in`.NasaApiUseCase
-import com.project.nasa.setting.application.port.`in`.dto.response.ResponseApod
+import com.project.nasa.setting.application.port.`in`.usecase.apod.NasaApiUseCase
+import com.project.nasa.setting.application.port.`in`.dto.response.apod.ResponseApod
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.stereotype.Service
 import org.springframework.web.reactive.function.client.WebClient

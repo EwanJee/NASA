@@ -1,4 +1,4 @@
-package com.project.nasa.setting.application.port.`in`.dto.request
+package com.project.nasa.setting.application.port.`in`.dto.request.apod
 
 import com.fasterxml.jackson.annotation.JsonProperty
 

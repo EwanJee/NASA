@@ -1,6 +1,6 @@
-package com.project.nasa.setting.adapter.`in`.web
+package com.project.nasa.setting.adapter.`in`.web.news
 
-import com.project.nasa.setting.application.port.`in`.NewsUseCase
+import com.project.nasa.setting.application.port.`in`.usecase.news.NewsUseCase
 import com.project.nasa.setting.application.port.`in`.dto.response.news.ResponseNews
 import io.swagger.v3.oas.annotations.tags.Tag
 import org.springframework.format.annotation.DateTimeFormat

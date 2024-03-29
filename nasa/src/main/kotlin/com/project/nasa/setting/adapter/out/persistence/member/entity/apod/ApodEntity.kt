@@ -1,4 +1,4 @@
-package com.project.nasa.setting.adapter.out.persistence.member.entity
+package com.project.nasa.setting.adapter.out.persistence.member.entity.apod
 
 import jakarta.annotation.Nullable
 import jakarta.persistence.*

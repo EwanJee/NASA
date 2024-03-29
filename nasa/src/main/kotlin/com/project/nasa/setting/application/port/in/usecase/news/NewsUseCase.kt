@@ -1,4 +1,4 @@
-package com.project.nasa.setting.application.port.`in`
+package com.project.nasa.setting.application.port.`in`.usecase.news
 
 import com.project.nasa.setting.application.port.`in`.dto.response.news.ResponseNews
 import java.time.LocalDate

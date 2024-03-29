@@ -1,8 +1,8 @@
-package com.project.nasa.setting.adapter.`in`.web
+package com.project.nasa.setting.adapter.`in`.web.apod
 
-import com.project.nasa.setting.adapter.out.persistence.member.service.ApodAdapter
-import com.project.nasa.setting.application.port.`in`.NasaApiUseCase
-import com.project.nasa.setting.application.port.`in`.dto.response.ResponseApod
+import com.project.nasa.setting.adapter.out.persistence.member.service.apod.ApodAdapter
+import com.project.nasa.setting.application.port.`in`.usecase.apod.NasaApiUseCase
+import com.project.nasa.setting.application.port.`in`.dto.response.apod.ResponseApod
 import io.swagger.v3.oas.annotations.Operation
 import io.swagger.v3.oas.annotations.tags.Tag
 import org.springframework.context.annotation.Description

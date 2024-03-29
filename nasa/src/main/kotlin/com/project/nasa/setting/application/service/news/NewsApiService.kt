@@ -1,9 +1,9 @@
-package com.project.nasa.setting.application.service
+package com.project.nasa.setting.application.service.news
 
 import com.kwabenaberko.newsapilib.NewsApiClient
 import com.kwabenaberko.newsapilib.models.request.TopHeadlinesRequest
 import com.kwabenaberko.newsapilib.models.response.ArticleResponse
-import com.project.nasa.setting.application.port.`in`.NewsUseCase
+import com.project.nasa.setting.application.port.`in`.usecase.news.NewsUseCase
 import com.project.nasa.setting.application.port.`in`.dto.response.news.ResponseNews
 import org.springframework.stereotype.Service
 import org.springframework.web.reactive.function.client.WebClient

@@ -1,9 +1,9 @@
-package com.project.nasa.setting.adapter.out.persistence.member.service.impl
+package com.project.nasa.setting.adapter.out.persistence.member.service.apod.impl
 
-import com.project.nasa.setting.adapter.out.persistence.member.entity.ApodEntity
-import com.project.nasa.setting.adapter.out.persistence.member.repository.ApodEntityRepository
-import com.project.nasa.setting.adapter.out.persistence.member.service.ApodAdapter
-import com.project.nasa.setting.application.port.`in`.dto.response.ResponseApod
+import com.project.nasa.setting.adapter.out.persistence.member.entity.apod.ApodEntity
+import com.project.nasa.setting.adapter.out.persistence.member.repository.apod.ApodEntityRepository
+import com.project.nasa.setting.adapter.out.persistence.member.service.apod.ApodAdapter
+import com.project.nasa.setting.application.port.`in`.dto.response.apod.ResponseApod
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
 import java.time.LocalDate

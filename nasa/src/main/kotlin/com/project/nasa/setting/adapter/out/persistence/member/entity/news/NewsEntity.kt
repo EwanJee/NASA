@@ -1,5 +1,6 @@
-package com.project.nasa.setting.adapter.out.persistence.member.entity
+package com.project.nasa.setting.adapter.out.persistence.member.entity.news
 
+import com.project.nasa.setting.adapter.out.persistence.member.entity.news.ArticleEntity
 import jakarta.persistence.CascadeType
 import jakarta.persistence.Column
 import jakarta.persistence.Entity

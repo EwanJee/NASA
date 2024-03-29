@@ -1,9 +1,9 @@
-package com.project.nasa.setting.application.service
+package com.project.nasa.setting.application.service.apod
 
-import com.project.nasa.setting.application.port.`in`.GptUseCase
-import com.project.nasa.setting.application.port.`in`.dto.request.Message
-import com.project.nasa.setting.application.port.`in`.dto.request.RequestGPT
-import com.project.nasa.setting.application.port.`in`.dto.response.ResponseGPT
+import com.project.nasa.setting.application.port.`in`.usecase.apod.GptUseCase
+import com.project.nasa.setting.application.port.`in`.dto.request.apod.Message
+import com.project.nasa.setting.application.port.`in`.dto.request.apod.RequestGPT
+import com.project.nasa.setting.application.port.`in`.dto.response.apod.ResponseGPT
 import org.springframework.stereotype.Service
 import org.springframework.web.reactive.function.client.WebClient
 
