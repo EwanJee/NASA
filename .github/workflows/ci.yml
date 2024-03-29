@@ -36,4 +36,4 @@ jobs:
         run: echo Hello, world!
         
       - name: Build with Gradle
-        run: ./gradlew build
+        run: .nasa/gradlew build
