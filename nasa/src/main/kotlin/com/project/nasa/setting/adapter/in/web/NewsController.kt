@@ -1,9 +1,12 @@
 package com.project.nasa.setting.adapter.`in`.web
 
 import com.project.nasa.setting.application.port.`in`.NewsUseCase
-import com.project.nasa.setting.application.port.`in`.dto.request.RequestNews
+import com.project.nasa.setting.application.port.`in`.dto.response.news.ResponseNews
 import io.swagger.v3.oas.annotations.tags.Tag
 import org.springframework.format.annotation.DateTimeFormat
+import org.springframework.hateoas.EntityModel
+import org.springframework.hateoas.server.mvc.WebMvcLinkBuilder
+import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
 import java.time.LocalDate
 
@@ -17,8 +20,13 @@ class NewsController(
     fun getAndJoinApi(
         @RequestParam("q") q: String,
         @RequestParam("date") @DateTimeFormat(pattern = "yyyy-MM-dd") date: LocalDate
-    ): RequestNews {
-        return newsUseCase.getAndPutApi(q, date, "ko")
+    ): ResponseEntity<EntityModel<ResponseNews>> {
+        val api : ResponseNews = newsUseCase.getAndPutApi(q, date, "ko")
+        val resource = EntityModel.of(api)
+        val link = WebMvcLinkBuilder.linkTo(WebMvcLinkBuilder.methodOn(NewsController::class.java).getAndJoinApi(q,date))
+        resource.add(link.withRel("self"))
+        return ResponseEntity.ok(resource)
+
     }
 
     @GetMapping("/{lang}")
@@ -26,7 +34,11 @@ class NewsController(
         @RequestParam("q") q: String,
         @RequestParam("date") @DateTimeFormat(pattern = "yyyy-MM-dd") date: LocalDate,
         @PathVariable lang: String
-    ): RequestNews {
-        return newsUseCase.getAndPutApi(q, date,lang)
+    ): ResponseEntity<EntityModel<ResponseNews>> {
+        val api : ResponseNews = newsUseCase.getAndPutApi(q, date, "ko")
+        val resource = EntityModel.of(api)
+        val link = WebMvcLinkBuilder.linkTo(WebMvcLinkBuilder.methodOn(NewsController::class.java).getAndJoinApiByLang(q,date,lang))
+        resource.add(link.withRel("self"))
+        return ResponseEntity.ok(resource)
     }
 }

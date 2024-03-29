@@ -1,10 +1,10 @@
-package com.project.nasa.setting.application.port.`in`.dto.request
+package com.project.nasa.setting.application.port.`in`.dto.response.news
 
 import com.fasterxml.jackson.annotation.JsonProperty
 
-data class RequestArticle(
+data class ResponseArticle(
     @JsonProperty("source")
-    val source : RequestSource?,
+    val source : ResponseSource?,
     @JsonProperty("author")
     val author: String?,
     @JsonProperty("title")

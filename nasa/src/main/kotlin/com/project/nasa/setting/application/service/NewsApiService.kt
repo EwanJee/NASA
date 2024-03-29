@@ -4,7 +4,7 @@ import com.kwabenaberko.newsapilib.NewsApiClient
 import com.kwabenaberko.newsapilib.models.request.TopHeadlinesRequest
 import com.kwabenaberko.newsapilib.models.response.ArticleResponse
 import com.project.nasa.setting.application.port.`in`.NewsUseCase
-import com.project.nasa.setting.application.port.`in`.dto.request.RequestNews
+import com.project.nasa.setting.application.port.`in`.dto.response.news.ResponseNews
 import org.springframework.stereotype.Service
 import org.springframework.web.reactive.function.client.WebClient
 import java.time.LocalDate
@@ -15,7 +15,7 @@ class NewsApiService(
     private val newsApiClient: NewsApiClient,
     private val newsClient: WebClient
 ) : NewsUseCase {
-    override fun getAndPutApi(q: String, date: LocalDate, lang: String): RequestNews {
+    override fun getAndPutApi(q: String, date: LocalDate, lang: String): ResponseNews {
         val news = newsClient.get()
             .uri { uriBuilder ->
                 uriBuilder
@@ -26,7 +26,7 @@ class NewsApiService(
                     .build()
             }
             .retrieve()
-            .bodyToMono(RequestNews::class.java)
+            .bodyToMono(ResponseNews::class.java)
             .block()
         if (news == null) throw IllegalArgumentException("날짜를 너무 앞당겼습니다. 무료버전이니 양해부탁드립니다")
         news.trimArticles()
