@@ -15,33 +15,37 @@ class NewsApiService(
     private val newsApiClient: NewsApiClient,
     private val newsClient: WebClient
 ) : NewsUseCase {
-    override fun getAndPutApi(q : String, date : LocalDate) : RequestNews{
+    override fun getAndPutApi(q: String, date: LocalDate, lang: String): RequestNews {
         val news = newsClient.get()
             .uri { uriBuilder ->
                 uriBuilder
                     .queryParam("q", q)
                     .queryParam("from", date)
                     .queryParam("sortBy", "published")
+                    .queryParam("language", lang)
                     .build()
             }
             .retrieve()
             .bodyToMono(RequestNews::class.java)
             .block()
         if (news == null) throw IllegalArgumentException("날짜를 너무 앞당겼습니다. 무료버전이니 양해부탁드립니다")
+        news.trimArticles()
         return news
     }
-    override fun getHeadlines() : String?{
-        var description : String? = null
+
+    override fun getHeadlines(): String? {
+        var description: String? = null
         newsApiClient.getTopHeadlines(
             TopHeadlinesRequest.Builder()
                 .q("bitcoin")
                 .language("en")
                 .build(),
-            object : NewsApiClient.ArticlesResponseCallback{
-                override fun onSuccess(response : ArticleResponse){
+            object : NewsApiClient.ArticlesResponseCallback {
+                override fun onSuccess(response: ArticleResponse) {
                     description = response.articles[0].title
                 }
-                override fun onFailure(throwable : Throwable) {
+
+                override fun onFailure(throwable: Throwable) {
                     println(throwable.message)
                 }
             }
