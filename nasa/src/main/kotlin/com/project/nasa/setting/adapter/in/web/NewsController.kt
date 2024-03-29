@@ -1,6 +1,7 @@
 package com.project.nasa.setting.adapter.`in`.web
 
 import com.project.nasa.setting.application.port.`in`.NewsUseCase
+import com.project.nasa.setting.application.port.`in`.dto.request.RequestNews
 import io.swagger.v3.oas.annotations.tags.Tag
 import org.springframework.format.annotation.DateTimeFormat
 import org.springframework.web.bind.annotation.GetMapping
@@ -19,8 +20,7 @@ class NewsController(
     fun getAndJoinApi(
         @RequestParam("q") q: String,
         @RequestParam("date") @DateTimeFormat(pattern = "yyyy-MM-dd") date: LocalDate
-    ) {
-
-
+    ) : RequestNews {
+        return newsUseCase.getAndPutApi(q,date)
     }
 }

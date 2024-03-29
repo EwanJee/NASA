@@ -14,7 +14,7 @@ class ArticleEntity(
     val title: String,
     @Column(name = "description")
     val description: String,
-    @Column(name = "author")
+    @Column(name = "url")
     val url: String,
     @Column(name = "image")
     val image: String,

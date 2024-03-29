@@ -1,11 +1,13 @@
 package com.project.nasa.common.config.webclient
 
+import com.kwabenaberko.newsapilib.NewsApiClient
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 import org.springframework.http.MediaType
 import org.springframework.http.client.reactive.ReactorClientHttpConnector
 import org.springframework.web.reactive.function.client.WebClient
+import org.springframework.web.util.DefaultUriBuilderFactory
 import reactor.netty.http.client.HttpClient
 import java.time.Duration
 
@@ -19,6 +21,10 @@ class WebClientConfig {
 
     @Value("\${news.url}")
     private lateinit var newsUrl: String
+
+    @Value("\${news.key}")
+    private lateinit var newsKey: String
+
 
     @Bean
     fun nasaClient(): WebClient {
@@ -39,8 +45,15 @@ class WebClientConfig {
     @Bean
     fun newsClient(): WebClient {
         return WebClient.builder()
-            .baseUrl(newsUrl)
+//            .baseUrl(newsUrl)
             .defaultHeader("Content-Type", MediaType.APPLICATION_JSON_VALUE)
+            .uriBuilderFactory(DefaultUriBuilderFactory("$newsUrl?apiKey=$newsKey"))
             .build()
+    }
+
+    @Bean
+    fun newsApiClient(): NewsApiClient {
+        val client = NewsApiClient(newsKey)
+        return client
     }
 }

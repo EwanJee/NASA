@@ -17,6 +17,6 @@ class NewsEntity(
     val id: Long? = null,
     @Column(name = "total_results")
     val totalResults: Int,
-    @OneToMany(mappedBy = "NEWS", cascade = [CascadeType.ALL])
+    @OneToMany(mappedBy = "news", cascade = [CascadeType.ALL])
     val articles: List<ArticleEntity>
 )

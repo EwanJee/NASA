@@ -10,18 +10,3 @@ data class RequestNews(
     @JsonProperty("articles")
     val articles: List<RequestArticle>
 )
-
-data class RequestArticle(
-    @JsonProperty("author")
-    val author: String,
-    @JsonProperty("title")
-    val title: String,
-    @JsonProperty("description")
-    val description: String,
-    @JsonProperty("url")
-    val url: String,
-    @JsonProperty("urlToImage")
-    val image: String?,
-    @JsonProperty("content")
-    val content: String
-)

@@ -26,6 +26,11 @@ val queryDslVersion: String by extra
 
 repositories {
     mavenCentral()
+    google()
+    // jitpack 추가
+    maven{
+        url = uri("https://jitpack.io")
+    }
 }
 
 dependencies {
@@ -49,6 +54,8 @@ dependencies {
     implementation("io.netty:netty-resolver-dns-native-macos")
     //HATEOAS
     implementation("org.springframework.boot:spring-boot-starter-hateoas")
+    //News API 라이브러리
+    implementation("com.github.KwabenBerko:News-API-Java:1.0.2")
 
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")
     implementation("org.springframework.boot:spring-boot-starter-mail")
