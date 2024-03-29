@@ -21,8 +21,8 @@ import java.time.LocalDate
 @RequestMapping("api/v1/nasa")
 @RestController
 class NasaApiController(
-    val apiUseCase: NasaApiUseCase,
-    val apodAdapter: ApodAdapter
+    private val apiUseCase: NasaApiUseCase,
+    private val apodAdapter: ApodAdapter
 ) {
     @Operation(summary = "APOD 받기" , description = "APOD = Astronomy Picture of the Day")
     @Description("API로부터 APOD를 받고 DB에 저장한다")

@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service
 import org.springframework.web.reactive.function.client.WebClient
 
 @Service
-class GptService(
+class GptApiService(
     private val gptClient: WebClient
 ) : GptUseCase {
     override fun translateByLanguage(lang: String, content: String): String {

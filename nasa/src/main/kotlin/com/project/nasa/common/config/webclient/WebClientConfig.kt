@@ -40,6 +40,7 @@ class WebClientConfig {
     fun newsClient(): WebClient {
         return WebClient.builder()
             .baseUrl(newsUrl)
+            .defaultHeader("Content-Type", MediaType.APPLICATION_JSON_VALUE)
             .build()
     }
 }
