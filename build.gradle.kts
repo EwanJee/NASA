@@ -91,11 +91,6 @@ tasks.named("clean") {
     }
 }
 
-
-kapt {
-    generateStubs = true
-}
-
 tasks.withType<KotlinCompile> {
     kotlinOptions {
         freeCompilerArgs += "-Xjsr305=strict"
