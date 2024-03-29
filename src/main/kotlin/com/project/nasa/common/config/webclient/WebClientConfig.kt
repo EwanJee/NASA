@@ -1,6 +1,5 @@
 package com.project.nasa.common.config.webclient
 
-import com.kwabenaberko.newsapilib.NewsApiClient
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
@@ -45,15 +44,9 @@ class WebClientConfig {
     @Bean
     fun newsClient(): WebClient {
         return WebClient.builder()
-//            .baseUrl(newsUrl)
+            .baseUrl(newsUrl)
             .defaultHeader("Content-Type", MediaType.APPLICATION_JSON_VALUE)
             .uriBuilderFactory(DefaultUriBuilderFactory("$newsUrl?apiKey=$newsKey"))
             .build()
-    }
-
-    @Bean
-    fun newsApiClient(): NewsApiClient {
-        val client = NewsApiClient(newsKey)
-        return client
     }
 }
