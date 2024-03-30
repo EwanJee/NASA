@@ -9,19 +9,19 @@ class ArticleEntity(
     @Column(name = "article_id")
     val id: Long?,
     @Column(name = "author")
-    val author: String,
+    val author: String?,
     @Column(name = "title")
-    val title: String,
-    @Column(name = "description")
-    val description: String,
-    @Column(name = "url")
-    val url: String,
-    @Column(name = "image")
-    val image: String,
-    @Column(name = "content")
-    val content: String,
+    val title: String?,
+    @Column(name = "description", length = 2000)
+    val description: String?,
+    @Column(name = "url", length = 500)
+    val url: String?,
+    @Column(name = "image", length = 500)
+    val image: String?,
+    @Column(name = "content", length = 2000)
+    val content: String?,
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "news_id")
-    val news: NewsEntity
+    val news: NewsEntity?
 ) {
 }
