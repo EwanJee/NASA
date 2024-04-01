@@ -25,11 +25,9 @@ class GptController(
     @Operation(summary = "해당 설명문 번역하기", description = "해당 id에 해당하는 객체의 설명문을 번역한다")
     @Description("해당 id에 해당하는 객체의 설명문을 번역한다")
     @GetMapping("/apod/tr/{id}")
-    fun updateTranslationInfo(@PathVariable("id") id: Long, @RequestParam("lang") lang : String) : ResponseEntity<EntityModel<String>> {
+    fun updateTranslationInfo(@PathVariable("id") id: Long, @RequestParam("lang") lang : String) : ResponseEntity<String> {
+
         val updateTranslation = apodAdapter.updateTranslation(id, gptPort.getTranslation(lang, apodAdapter.getExplanationById(id)))
-        val resource = EntityModel.of(updateTranslation)
-        val link = WebMvcLinkBuilder.linkTo(WebMvcLinkBuilder.methodOn(GptController::class.java).updateTranslationInfo(id,lang))
-        resource.add(link.withRel("self"))
-        return ResponseEntity.ok(resource)
+        return ResponseEntity.ok(updateTranslation)
     }
 }

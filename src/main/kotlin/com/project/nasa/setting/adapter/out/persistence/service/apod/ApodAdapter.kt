@@ -12,4 +12,7 @@ interface ApodAdapter {
     fun getExplanationById(id: Long): String
     fun updateTranslation(id: Long, translated: String) : String
     fun addOnetoStarPoint(id : Long) : Long
+    /**
+     * 만약 translation이 존재할 때 메서드 처리하기
+     */
 }

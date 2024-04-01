@@ -4,10 +4,12 @@ import com.project.nasa.setting.application.port.`in`.usecase.apod.GptUseCase
 import com.project.nasa.setting.application.port.`in`.dto.request.gpt.Message
 import com.project.nasa.setting.application.port.`in`.dto.request.gpt.RequestBodyGPT
 import com.project.nasa.setting.application.port.`in`.dto.request.gpt.RequestGPT
+import lombok.extern.slf4j.Slf4j
 import org.springframework.stereotype.Component
 import org.springframework.web.reactive.function.client.WebClient
 
 @Component
+@Slf4j
 class GptApiService(
     private val gptClient: WebClient
 ) : GptUseCase {
