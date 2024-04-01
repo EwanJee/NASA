@@ -1,8 +1,8 @@
 package com.project.nasa.setting.adapter.`in`.web.news
 
 import com.project.nasa.setting.adapter.out.persistence.service.news.NewsAndArticleAdapter
-import com.project.nasa.setting.adapter.out.persistence.service.news.dto.ResponseNews
-import com.project.nasa.setting.application.port.out.usecase.NewsPort
+import com.project.nasa.setting.adapter.out.persistence.service.news.dto.response.ResponseNews
+import com.project.nasa.setting.application.port.out.usecase.news.NewsPort
 import io.swagger.v3.oas.annotations.Operation
 import io.swagger.v3.oas.annotations.tags.Tag
 import org.springframework.context.annotation.Description
@@ -29,7 +29,7 @@ class NewsController(
     ): ResponseEntity<EntityModel<ResponseNews>> {
         var api: ResponseNews? = newsAndArticleAdapter.getByQAndDate(q, date)
         if (api == null) {
-            api = newsAndArticleAdapter.join(q,date,newsPort.sendNewsApi(q,date,"ko"))
+            api = newsAndArticleAdapter.join(q,date,newsPort.convertNewsApi(q,date,"ko"))
         }
         val resource = EntityModel.of(api)
         val link =
@@ -49,7 +49,7 @@ class NewsController(
     ): ResponseEntity<EntityModel<ResponseNews>> {
         var api: ResponseNews? = newsAndArticleAdapter.getByQAndDate(q, date)
         if (api == null) {
-            api = newsAndArticleAdapter.join(q,date,newsPort.sendNewsApi(q,date,lang))
+            api = newsAndArticleAdapter.join(q,date,newsPort.convertNewsApi(q,date,lang))
         }
         val resource = EntityModel.of(api)
         val link = WebMvcLinkBuilder.linkTo(

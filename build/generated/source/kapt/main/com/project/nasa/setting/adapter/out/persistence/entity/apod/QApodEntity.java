@@ -23,11 +23,11 @@ public class QApodEntity extends EntityPathBase<ApodEntity> {
 
     public final StringPath explanation = createString("explanation");
 
+    public final StringPath hdurl = createString("hdurl");
+
     public final NumberPath<Long> id = createNumber("id", Long.class);
 
     public final StringPath media_type = createString("media_type");
-
-    public final StringPath service_version = createString("service_version");
 
     public final NumberPath<Long> starPoint = createNumber("starPoint", Long.class);
 

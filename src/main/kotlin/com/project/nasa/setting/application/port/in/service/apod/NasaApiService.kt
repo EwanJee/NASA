@@ -1,13 +1,14 @@
 package com.project.nasa.setting.application.port.`in`.service.apod
 
+import com.project.nasa.setting.application.port.`in`.dto.request.apod.RequestApod
 import com.project.nasa.setting.application.port.`in`.usecase.apod.NasaApiUseCase
-import com.project.nasa.setting.application.port.`in`.dto.response.apod.ResponseApod
+import com.project.nasa.setting.domain.apod.Apod
 import org.springframework.beans.factory.annotation.Value
-import org.springframework.stereotype.Service
+import org.springframework.stereotype.Component
 import org.springframework.web.reactive.function.client.WebClient
 import java.time.LocalDate
 
-@Service
+@Component
 class NasaApiService(
     private val nasaClient: WebClient
 ) : NasaApiUseCase {
@@ -17,16 +18,23 @@ class NasaApiService(
         value
     }
 
-    override fun getApod(url: String, date: LocalDate): ResponseApod {
+    override fun getApod(url: String, date: LocalDate): Apod {
         val baseUrl: String = getApiURL(url, date)
-        val responseApod = nasaClient
+        val requestApod = nasaClient
             .get()
             .uri(baseUrl)
             .retrieve()
-            .bodyToMono(ResponseApod::class.java)
+            .bodyToMono(RequestApod::class.java)
             .block()
-        if (responseApod == null) throw IllegalArgumentException("요청 정보가 잘못 되었습니다")
-        return responseApod
+        if (requestApod == null) throw IllegalArgumentException("요청 정보가 잘못 되었습니다")
+        return Apod(
+            date = requestApod.date,
+            explanation = requestApod.explanation,
+            mediaType = requestApod.media_type,
+            title = requestApod.title,
+            url = requestApod.url,
+            hdurl = requestApod.hdurl
+        )
     }
 
     private fun getApiURL(url: String, date: LocalDate): String {

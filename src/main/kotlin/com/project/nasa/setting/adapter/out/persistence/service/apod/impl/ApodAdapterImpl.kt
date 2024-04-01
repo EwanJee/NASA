@@ -3,7 +3,8 @@ package com.project.nasa.setting.adapter.out.persistence.service.apod.impl
 import com.project.nasa.setting.adapter.out.persistence.entity.apod.ApodEntity
 import com.project.nasa.setting.adapter.out.persistence.repository.apod.ApodEntityRepository
 import com.project.nasa.setting.adapter.out.persistence.service.apod.ApodAdapter
-import com.project.nasa.setting.application.port.`in`.dto.response.apod.ResponseApod
+import com.project.nasa.setting.adapter.out.persistence.service.dto.response.ResponseApod
+import com.project.nasa.setting.application.port.out.response.apod.ApodData
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
 import java.time.LocalDate
@@ -20,25 +21,32 @@ class ApodAdapterImpl(
             date = apodEntity.date,
             explanation = apodEntity.explanation,
             media_type = apodEntity.media_type,
-            service_version = apodEntity.service_version,
             title = apodEntity.title,
-            url = apodEntity.url
+            url = apodEntity.url,
+            hdurl = apodEntity.hdurl
         )
     }
 
     @Transactional
-    override fun join(responseApod: ResponseApod): ResponseApod {
+    override fun join(apodData: ApodData): ResponseApod {
         val apodEntity = ApodEntity(
-            date = responseApod.date,
-            explanation = responseApod.explanation,
-            media_type = responseApod.media_type,
-            service_version = responseApod.service_version,
-            title = responseApod.title,
-            url = responseApod.url
+            date = apodData.date,
+            explanation = apodData.explanation,
+            media_type = apodData.mediaType,
+            title = apodData.title,
+            url = apodData.url,
+            hdurl = apodData.hdurl
         )
         val saved = apodEntityRepository.save(apodEntity)
-        responseApod.id = saved.id
-        return responseApod
+        return ResponseApod(
+            id = saved.id,
+            date = saved.date,
+            explanation = saved.explanation,
+            media_type = saved.media_type,
+            title = saved.title,
+            url = saved.url,
+            hdurl = saved.hdurl
+        )
     }
 
     override fun getExplanationById(id: Long): String {
@@ -47,7 +55,8 @@ class ApodAdapterImpl(
 
     @Transactional
     override fun updateTranslation(id: Long, translated: String): String {
-        val stored = apodEntityRepository.findById(id).orElseThrow { IllegalArgumentException("해당 정보가 존재하지 않습니다") }
+        val stored = apodEntityRepository.findById(id)
+            .orElseThrow { IllegalArgumentException("해당 정보가 존재하지 않습니다") }
         if (stored.explanation.isBlank()) return stored.translatedExplanation!!
         stored.updateTranslation(translated)
         val translatedExplanation = stored.translatedExplanation ?: throw IllegalArgumentException("")
@@ -57,7 +66,7 @@ class ApodAdapterImpl(
     @Transactional
     override fun addOnetoStarPoint(id: Long): Long {
         val stored: ApodEntity = apodEntityRepository.findById(id)
-            .orElseThrow({ IllegalArgumentException("해당 정보가 존재하지 않습니다") })
+            .orElseThrow { IllegalArgumentException("해당 정보가 존재하지 않습니다") }
         return stored.addOneToStarPoint()
     }
 }

@@ -21,12 +21,12 @@ class ApodEntity(
     val explanation: String,
     @Column(name = "media_type")
     val media_type: String,
-    @Column(name = "service_version")
-    val service_version: String,
     @Column(name = "title")
     val title: String,
     @Column(name = "url")
     val url: String,
+    @Column(name = "hdurl")
+    val hdurl : String,
     @Nullable
     @Column(name = "translated_explanation", length = 2000)
     var translatedExplanation: String? = null,

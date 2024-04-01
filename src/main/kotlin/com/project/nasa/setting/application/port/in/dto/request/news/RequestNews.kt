@@ -9,11 +9,4 @@ data class RequestNews(
     @Size(max = 8)
     @JsonProperty("articles")
     var articles: List<RequestArticle>
-) {
-    fun trimArticles(){
-        if(articles.size > 8){
-            this.articles = articles.take(8)
-            this.totalResults = articles.size
-        }
-    }
-}
+)

@@ -4,11 +4,9 @@ import com.project.nasa.setting.adapter.out.persistence.entity.news.ArticleEntit
 import com.project.nasa.setting.adapter.out.persistence.entity.news.NewsEntity
 import com.project.nasa.setting.adapter.out.persistence.repository.news.NewsEntityRepository
 import com.project.nasa.setting.adapter.out.persistence.service.news.NewsAndArticleAdapter
-import com.project.nasa.setting.application.port.`in`.dto.request.news.RequestArticle
-import com.project.nasa.setting.application.port.`in`.dto.request.news.RequestNews
-import com.project.nasa.setting.adapter.out.persistence.service.news.dto.ResponseNews
-import com.project.nasa.setting.application.port.out.data.ArticleData
-import com.project.nasa.setting.application.port.out.data.NewsData
+import com.project.nasa.setting.adapter.out.persistence.service.news.dto.response.ResponseNews
+import com.project.nasa.setting.application.port.out.response.news.ArticleData
+import com.project.nasa.setting.application.port.out.response.news.NewsData
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
 import java.time.LocalDate

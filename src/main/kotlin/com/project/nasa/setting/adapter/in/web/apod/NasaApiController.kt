@@ -1,8 +1,8 @@
 package com.project.nasa.setting.adapter.`in`.web.apod
 
 import com.project.nasa.setting.adapter.out.persistence.service.apod.ApodAdapter
-import com.project.nasa.setting.application.port.`in`.usecase.apod.NasaApiUseCase
-import com.project.nasa.setting.application.port.`in`.dto.response.apod.ResponseApod
+import com.project.nasa.setting.adapter.out.persistence.service.dto.response.ResponseApod
+import com.project.nasa.setting.application.port.out.usecase.apod.ApodPort
 import io.swagger.v3.oas.annotations.Operation
 import io.swagger.v3.oas.annotations.tags.Tag
 import org.springframework.context.annotation.Description
@@ -21,7 +21,7 @@ import java.time.LocalDate
 @RequestMapping("api/v1/nasa")
 @RestController
 class NasaApiController(
-    private val apiUseCase: NasaApiUseCase,
+    private val apodPort: ApodPort,
     private val apodAdapter: ApodAdapter
 ) {
     @Operation(summary = "APOD 받기" , description = "APOD = Astronomy Picture of the Day")
@@ -30,8 +30,7 @@ class NasaApiController(
     fun getAndJoinApi(@RequestParam("date") @DateTimeFormat(pattern = "yyyy-MM-dd") date : LocalDate): ResponseEntity<EntityModel<ResponseApod>> {
         var apod : ResponseApod? = apodAdapter.getByDate(date)
         if(apod == null){
-            apod = apiUseCase.getApod("https://api.nasa.gov/planetary/apod", date)
-            apod = apodAdapter.join(apod)
+            apod = apodAdapter.join(apodPort.convertApod("https://api.nasa.gov/planetary/apod",date))
         }
         val resource = EntityModel.of(apod)
         val link = WebMvcLinkBuilder.linkTo(WebMvcLinkBuilder.methodOn(NasaApiController::class.java).getAndJoinApi(date))
