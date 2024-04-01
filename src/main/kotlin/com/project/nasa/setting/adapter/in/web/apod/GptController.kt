@@ -1,6 +1,6 @@
 package com.project.nasa.setting.adapter.`in`.web.apod
 
-import com.project.nasa.setting.adapter.out.persistence.member.service.apod.ApodAdapter
+import com.project.nasa.setting.adapter.out.persistence.service.apod.ApodAdapter
 import com.project.nasa.setting.application.port.`in`.usecase.apod.GptUseCase
 import io.swagger.v3.oas.annotations.Operation
 import io.swagger.v3.oas.annotations.tags.Tag

@@ -1,9 +1,8 @@
 package com.project.nasa.setting.adapter.`in`.web.news
 
-import com.project.nasa.setting.adapter.out.persistence.member.service.news.NewsAndArticleAdapter
-import com.project.nasa.setting.application.port.`in`.usecase.news.NewsUseCase
-import com.project.nasa.setting.application.port.`in`.dto.request.news.RequestNews
-import com.project.nasa.setting.application.port.`in`.dto.response.news.ResponseNews
+import com.project.nasa.setting.adapter.out.persistence.service.news.NewsAndArticleAdapter
+import com.project.nasa.setting.adapter.out.persistence.service.news.dto.ResponseNews
+import com.project.nasa.setting.application.port.out.usecase.NewsPort
 import io.swagger.v3.oas.annotations.Operation
 import io.swagger.v3.oas.annotations.tags.Tag
 import org.springframework.context.annotation.Description
@@ -18,7 +17,7 @@ import java.time.LocalDate
 @RequestMapping("/api/v1/news")
 @RestController
 class NewsController(
-    private val newsUseCase: NewsUseCase,
+    private val newsPort: NewsPort,
     private val newsAndArticleAdapter: NewsAndArticleAdapter
 ) {
     @Operation(summary = "뉴스 불러오기", description = "q = 토픽, date = 날짜 에 맞는 뉴스 불러오기")
@@ -30,7 +29,7 @@ class NewsController(
     ): ResponseEntity<EntityModel<ResponseNews>> {
         var api: ResponseNews? = newsAndArticleAdapter.getByQAndDate(q, date)
         if (api == null) {
-            api = newsAndArticleAdapter.join(q,date,newsUseCase.getAndPutApi(q, date, "ko"))
+            api = newsAndArticleAdapter.join(q,date,newsPort.sendNewsApi(q,date,"ko"))
         }
         val resource = EntityModel.of(api)
         val link =
@@ -47,8 +46,11 @@ class NewsController(
         @RequestParam("q") q: String,
         @RequestParam("date") @DateTimeFormat(pattern = "yyyy-MM-dd") date: LocalDate,
         @PathVariable lang: String
-    ): ResponseEntity<EntityModel<RequestNews>> {
-        val api: RequestNews = newsUseCase.getAndPutApi(q, date, "ko")
+    ): ResponseEntity<EntityModel<ResponseNews>> {
+        var api: ResponseNews? = newsAndArticleAdapter.getByQAndDate(q, date)
+        if (api == null) {
+            api = newsAndArticleAdapter.join(q,date,newsPort.sendNewsApi(q,date,lang))
+        }
         val resource = EntityModel.of(api)
         val link = WebMvcLinkBuilder.linkTo(
             WebMvcLinkBuilder.methodOn(NewsController::class.java).getAndJoinApiByLang(q, date, lang)

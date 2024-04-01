@@ -1,7 +1,6 @@
 package com.project.nasa.setting.application.port.`in`.usecase.news
 
 import com.project.nasa.setting.application.port.`in`.dto.request.news.RequestNews
-import com.project.nasa.setting.application.port.`in`.dto.response.news.ResponseNews
 import java.time.LocalDate
 
 interface NewsUseCase {
