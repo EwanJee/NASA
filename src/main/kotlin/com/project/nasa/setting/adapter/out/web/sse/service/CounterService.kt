@@ -10,8 +10,9 @@ class CounterService {
     fun increment(): Int {
         return counter.incrementAndGet()
     }
-    @Scheduled(cron = "0 0 0 * * *" , zone = "America/New_York") // 매일 자정에 리셋
-    fun reset(){
+
+    @Scheduled(cron = "0 0 0 * * *", zone = "America/New_York") // 매일 자정에 리셋
+    fun reset() {
         counter.set(0)
     }
 
