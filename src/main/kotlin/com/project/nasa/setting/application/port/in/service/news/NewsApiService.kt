@@ -6,9 +6,6 @@ import com.project.nasa.setting.application.port.`in`.usecase.news.NewsUseCase
 import com.project.nasa.setting.application.port.`in`.dto.request.news.RequestNews
 import com.project.nasa.setting.domain.news.Article
 import com.project.nasa.setting.domain.news.News
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.runBlocking
-import kotlinx.coroutines.withContext
 import org.springframework.stereotype.Component
 import org.springframework.web.reactive.function.client.WebClient
 import org.springframework.web.reactive.function.client.WebClientResponseException
