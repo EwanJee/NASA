@@ -5,6 +5,7 @@ import com.project.nasa.setting.adapter.out.persistence.service.news.dto.respons
 import com.project.nasa.setting.application.port.out.usecase.news.NewsPort
 import io.swagger.v3.oas.annotations.Operation
 import io.swagger.v3.oas.annotations.tags.Tag
+import kotlinx.coroutines.runBlocking
 import org.springframework.context.annotation.Description
 import org.springframework.format.annotation.DateTimeFormat
 import org.springframework.hateoas.EntityModel
@@ -23,7 +24,7 @@ class NewsController(
     @Operation(summary = "뉴스 불러오기", description = "q = 토픽, date = 날짜 에 맞는 뉴스 불러오기")
     @Description("뉴스 불러오기")
     @GetMapping("/")
-    fun getAndJoinApi(
+    suspend fun getAndJoinApi(
         @RequestParam("q") q: String,
         @RequestParam("date") @DateTimeFormat(pattern = "yyyy-MM-dd") date: LocalDate
     ): ResponseEntity<EntityModel<ResponseNews>> {
@@ -42,7 +43,7 @@ class NewsController(
     @Operation(summary = "뉴스 불러오기 (언어에 따라)", description = "q = 토픽, date = 날짜, lang = 언어 에 맞는 뉴스 불러오기")
     @Description("뉴스 불러오기 (언어에 따라)")
     @GetMapping("/{lang}")
-    fun getAndJoinApiByLang(
+    suspend fun getAndJoinApiByLang(
         @RequestParam("q") q: String,
         @RequestParam("date") @DateTimeFormat(pattern = "yyyy-MM-dd") date: LocalDate,
         @PathVariable lang: String

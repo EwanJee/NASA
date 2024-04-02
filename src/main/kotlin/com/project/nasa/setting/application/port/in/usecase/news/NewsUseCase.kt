@@ -4,5 +4,5 @@ import com.project.nasa.setting.domain.news.News
 import java.time.LocalDate
 
 interface NewsUseCase {
-    fun getAndPutApi(q: String, date: LocalDate, lang: String): News
+    suspend fun getAndPutApi(q: String, date: LocalDate, lang: String): News
 }

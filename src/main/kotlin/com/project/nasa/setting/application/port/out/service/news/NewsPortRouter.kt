@@ -11,7 +11,7 @@ import java.time.LocalDate
 class NewsPortRouter(
     private val newsUseCase: NewsUseCase
 ) : NewsPort {
-    override fun convertNewsApi(q: String, date: LocalDate, lang: String): NewsData {
+    override suspend fun convertNewsApi(q: String, date: LocalDate, lang: String): NewsData {
         val news = newsUseCase.getAndPutApi(q, date, lang)
         val articleDataList: List<ArticleData> = news.articles
             .map { article ->
