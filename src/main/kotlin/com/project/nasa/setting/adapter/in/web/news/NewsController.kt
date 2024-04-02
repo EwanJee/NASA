@@ -5,7 +5,6 @@ import com.project.nasa.setting.adapter.out.persistence.service.news.dto.respons
 import com.project.nasa.setting.application.port.out.usecase.news.NewsPort
 import io.swagger.v3.oas.annotations.Operation
 import io.swagger.v3.oas.annotations.tags.Tag
-import kotlinx.coroutines.runBlocking
 import org.springframework.context.annotation.Description
 import org.springframework.format.annotation.DateTimeFormat
 import org.springframework.hateoas.EntityModel
@@ -30,7 +29,7 @@ class NewsController(
     ): ResponseEntity<EntityModel<ResponseNews>> {
         var api: ResponseNews? = newsAndArticleAdapter.getByQAndDate(q, date)
         if (api == null) {
-            api = newsAndArticleAdapter.join(q,date,newsPort.convertNewsApi(q,date,"ko"))
+            api = newsAndArticleAdapter.join(q, date, newsPort.convertNewsApi(q, date, "ko"))
         }
         val resource = EntityModel.of(api)
         val link =
@@ -50,7 +49,7 @@ class NewsController(
     ): ResponseEntity<EntityModel<ResponseNews>> {
         var api: ResponseNews? = newsAndArticleAdapter.getByQAndDate(q, date)
         if (api == null) {
-            api = newsAndArticleAdapter.join(q,date,newsPort.convertNewsApi(q,date,lang))
+            api = newsAndArticleAdapter.join(q, date, newsPort.convertNewsApi(q, date, lang))
         }
         val resource = EntityModel.of(api)
         val link = WebMvcLinkBuilder.linkTo(
