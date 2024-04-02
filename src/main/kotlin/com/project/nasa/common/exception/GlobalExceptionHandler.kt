@@ -9,7 +9,8 @@ import org.springframework.web.bind.annotation.RestControllerAdvice
 @RestControllerAdvice
 class GlobalExceptionHandler {
     @ExceptionHandler(NewsException::class)
-    fun handleNewsException(newsException: NewsException): ResponseEntity<NewsException> {
-        return ResponseEntity.badRequest().body(newsException)
+    fun handleNewsException(newsException: NewsException): ResponseEntity<ErrorResponse> {
+        val errorResponse = ErrorResponse(newsException.errorCode.status, newsException.errorCode.code, newsException.errorCode.message)
+        return ResponseEntity.status(newsException.errorCode.status).body(errorResponse)
     }
 }

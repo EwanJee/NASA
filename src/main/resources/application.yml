@@ -33,3 +33,8 @@ springdoc:
   model-and-view-allowed: true
   paths-to-match:
     - /api/v1/**
+
+# server 에러 로그 설정
+server:
+  error:
+    include-stacktrace: never
