@@ -1,4 +1,4 @@
-package com.project.nasa.setting.adapter.out.web
+package com.project.nasa.setting.adapter.out.web.sse.repository
 
 import org.springframework.stereotype.Component
 import org.springframework.web.servlet.mvc.method.annotation.SseEmitter
