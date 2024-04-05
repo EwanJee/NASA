@@ -2,6 +2,7 @@ package com.project.nasa.setting.adapter.out.web.sse.service.impl
 
 import com.project.nasa.setting.adapter.out.web.sse.repository.SseEmitters
 import com.project.nasa.setting.adapter.out.web.sse.service.CounterAdapter
+import org.slf4j.LoggerFactory
 import org.springframework.scheduling.annotation.Scheduled
 import org.springframework.stereotype.Service
 import java.util.concurrent.atomic.AtomicInteger
@@ -11,9 +12,11 @@ class CounterAdapterImpl(
     private val sseEmitters: SseEmitters
 ) : CounterAdapter {
     private var counter = AtomicInteger(0)
+    private val logger = LoggerFactory.getLogger(CounterAdapterImpl::class.java)
     override fun increment(): Int {
         val count = counter.incrementAndGet()
         sseEmitters.sendToAll(count)
+        logger.info("Counter: $count")
         return count
     }
 

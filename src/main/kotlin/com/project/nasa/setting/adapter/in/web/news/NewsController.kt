@@ -34,6 +34,7 @@ class NewsController(
         var api: ResponseNews? = newsAndArticleAdapter.getByQAndDate(q, date)
         if (api == null) {
             api = newsAndArticleAdapter.join(q, date, newsPort.convertNewsApi(q, date, "ko"))
+            counterAdapter.increment() // counter 증가. == 뉴스 API 요청 횟수
         }
         val resource = EntityModel.of(api)
         val link =
