@@ -10,7 +10,7 @@ import java.util.concurrent.atomic.AtomicInteger
 class CounterAdapterImpl(
     private val sseEmitters: SseEmitters
 ) : CounterAdapter {
-    private val counter = AtomicInteger(0)
+    private var counter = AtomicInteger(0)
     override fun increment(): Int {
         val count = counter.incrementAndGet()
         sseEmitters.sendToAll(count)
