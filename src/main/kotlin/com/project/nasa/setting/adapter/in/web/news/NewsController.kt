@@ -2,6 +2,9 @@ package com.project.nasa.setting.adapter.`in`.web.news
 
 import com.project.nasa.setting.adapter.out.persistence.service.news.NewsAndArticleAdapter
 import com.project.nasa.setting.adapter.out.persistence.service.news.dto.response.ResponseNews
+import com.project.nasa.setting.adapter.out.web.sse.repository.SseEmitters
+import com.project.nasa.setting.adapter.out.web.sse.service.CounterAdapter
+import com.project.nasa.setting.adapter.out.web.sse.service.impl.CounterAdapterImpl
 import com.project.nasa.setting.application.port.out.usecase.news.NewsPort
 import io.swagger.v3.oas.annotations.Operation
 import io.swagger.v3.oas.annotations.tags.Tag
@@ -12,14 +15,14 @@ import org.springframework.hateoas.server.mvc.WebMvcLinkBuilder
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
 import java.time.LocalDate
-import java.util.concurrent.atomic.AtomicInteger
 
 @Tag(name = "News Api 컨트롤러", description = "https://newsapi.org/v2/everything 에서 데이터 받기 컨트롤러")
 @RequestMapping("/api/v1/news")
 @RestController
 class NewsController(
     private val newsPort: NewsPort,
-    private val newsAndArticleAdapter: NewsAndArticleAdapter
+    private val newsAndArticleAdapter: NewsAndArticleAdapter,
+    private val counterAdapter: CounterAdapter
 ) {
     @Operation(summary = "뉴스 불러오기", description = "q = 토픽, date = 날짜 에 맞는 뉴스 불러오기")
     @Description("뉴스 불러오기")
@@ -51,6 +54,7 @@ class NewsController(
         var api: ResponseNews? = newsAndArticleAdapter.getByQAndDate(q, date)
         if (api == null) {
             api = newsAndArticleAdapter.join(q, date, newsPort.convertNewsApi(q, date, lang))
+            counterAdapter.increment() // counter 증가. == 뉴스 API 요청 횟수
         }
         val resource = EntityModel.of(api)
         val link = WebMvcLinkBuilder.linkTo(
