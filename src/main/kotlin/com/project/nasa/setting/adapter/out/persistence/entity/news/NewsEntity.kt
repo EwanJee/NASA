@@ -22,6 +22,8 @@ class NewsEntity(
     val date: LocalDate,
     @Column(name = "total_results")
     val totalResults: Int,
+    @Column(name = "total_results_en")
+    var totalResultsEn: Int,
     @OneToMany(mappedBy = "news", cascade = [CascadeType.ALL])
     val articles: List<ArticleEntity>,
     @OneToMany(mappedBy = "news", cascade = [CascadeType.ALL])
@@ -29,5 +31,6 @@ class NewsEntity(
 ){
     fun updateArticlesEn(articlesEn: List<ArticleEntity>){
         this.articles_en = articlesEn
+        this.totalResultsEn = articlesEn.size
     }
 }

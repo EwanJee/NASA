@@ -18,10 +18,7 @@ class NewsAndArticleAdapterImpl(
 ) : NewsAndArticleAdapter {
     override fun getByQAndDate(topic: String, date: LocalDate, lang: String): ResponseNews? {
         val newsEntity = newsEntityRepository.findByTopicAndDate(topic, date) ?: return null
-        if (lang != "ko") {
-            if (newsEntity.articles_en == null)
-                return null
-        }
+        if (lang != "ko" && newsEntity.articles_en?.isEmpty() == true) return null
         val articleList: List<ArticleData> =
             newsEntity.articles
                 .map { article ->
@@ -61,7 +58,6 @@ class NewsAndArticleAdapterImpl(
                     article.description,
                     article.url,
                     article.image,
-                    null,
                     null
                 )
             }
@@ -70,6 +66,7 @@ class NewsAndArticleAdapterImpl(
             topic = topic,
             date = date,
             totalResults = newsData.totalResults,
+            totalResultsEn = 0,
             articles = articles,
             articles_en = null
         )
@@ -95,13 +92,12 @@ class NewsAndArticleAdapterImpl(
                     article.description,
                     article.url,
                     article.image,
-                    null,
-                    null
+                    newsEntity
                 )
             }
         newsEntity.updateArticlesEn(articlesEn)
         return ResponseNews(
-            totalResults = newsEntity.totalResults,
+            totalResults = newsEntity.totalResultsEn,
             articles = newsEntity.articles.map { article ->
                 ArticleData(
                     title = article.title,
@@ -122,6 +118,5 @@ class NewsAndArticleAdapterImpl(
                 )
             }
         )
-
     }
 }
