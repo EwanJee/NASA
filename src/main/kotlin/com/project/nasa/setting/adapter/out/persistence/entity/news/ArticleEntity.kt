@@ -18,6 +18,9 @@ class ArticleEntity(
     val image: String?,
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "news_id")
-    val news: NewsEntity?
+    val news: NewsEntity?,
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "news_id")
+    val news_en: NewsEntity?
 ) {
 }

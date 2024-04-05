@@ -8,5 +8,6 @@ class ResponseNews(
     var totalResults: Int,
     var topic: String,
     var date: LocalDate,
-    var articles: List<ArticleData>
+    var articles: List<ArticleData>,
+    var articles_en: List<ArticleData>?
 )

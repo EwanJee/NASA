@@ -31,7 +31,7 @@ class NewsController(
         @RequestParam("q") q: String,
         @RequestParam("date") @DateTimeFormat(pattern = "yyyy-MM-dd") date: LocalDate
     ): ResponseEntity<EntityModel<ResponseNews>> {
-        var api: ResponseNews? = newsAndArticleAdapter.getByQAndDate(q, date)
+        var api: ResponseNews? = newsAndArticleAdapter.getByQAndDate(q, date, "ko")
         if (api == null) {
             api = newsAndArticleAdapter.join(q, date, newsPort.convertNewsApi(q, date, "ko"))
             counterAdapter.increment() // counter 증가. == 뉴스 API 요청 횟수
@@ -44,7 +44,7 @@ class NewsController(
 
     }
 
-    @Operation(summary = "뉴스 불러오기 (언어에 따라)", description = "q = 토픽, date = 날짜, lang = 언어 에 맞는 뉴스 불러오기")
+    @Operation(summary = "뉴스 불러오기 (언어에 따라)", description = "q = 토픽, date = 날짜, lang = 언어 에 맞는 뉴스 불러오기, ko는 X")
     @Description("뉴스 불러오기 (언어에 따라)")
     @GetMapping("/{lang}")
     suspend fun getAndJoinApiByLang(
@@ -52,9 +52,9 @@ class NewsController(
         @RequestParam("date") @DateTimeFormat(pattern = "yyyy-MM-dd") date: LocalDate,
         @PathVariable lang: String
     ): ResponseEntity<EntityModel<ResponseNews>> {
-        var api: ResponseNews? = newsAndArticleAdapter.getByQAndDate(q, date)
+        var api: ResponseNews? = newsAndArticleAdapter.getByQAndDate(q, date, lang)
         if (api == null) {
-            api = newsAndArticleAdapter.join(q, date, newsPort.convertNewsApi(q, date, lang))
+            api = newsAndArticleAdapter.updateNewsEn(q, date, newsPort.convertNewsApi(q, date, lang))
             counterAdapter.increment() // counter 증가. == 뉴스 API 요청 횟수
         }
         val resource = EntityModel.of(api)

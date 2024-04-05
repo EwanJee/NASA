@@ -16,8 +16,12 @@ import java.time.LocalDate
 class NewsAndArticleAdapterImpl(
     private val newsEntityRepository: NewsEntityRepository
 ) : NewsAndArticleAdapter {
-    override fun getByQAndDate(topic: String, date: LocalDate): ResponseNews? {
+    override fun getByQAndDate(topic: String, date: LocalDate, lang: String): ResponseNews? {
         val newsEntity = newsEntityRepository.findByTopicAndDate(topic, date) ?: return null
+        if (lang != "ko") {
+            if (newsEntity.articles_en == null)
+                return null
+        }
         val articleList: List<ArticleData> =
             newsEntity.articles
                 .map { article ->
@@ -28,12 +32,21 @@ class NewsAndArticleAdapterImpl(
                         image = article.image,
                     )
                 }
+        val articlesEn: List<ArticleData> = newsEntity.articles_en?.map { article ->
+            ArticleData(
+                title = article.title,
+                description = article.description,
+                url = article.url,
+                image = article.image,
+            )
+        } ?: emptyList()
         return ResponseNews(
             totalResults = newsEntity.totalResults,
             articles = articleList,
             topic = topic,
             date = date,
-            id = newsEntity.id
+            id = newsEntity.id,
+            articles_en = articlesEn
         )
     }
 
@@ -48,15 +61,17 @@ class NewsAndArticleAdapterImpl(
                     article.description,
                     article.url,
                     article.image,
+                    null,
                     null
                 )
             }
-        val newsEntity: NewsEntity = NewsEntity(
+        val newsEntity = NewsEntity(
             id = null,
             topic = topic,
             date = date,
             totalResults = newsData.totalResults,
-            articles = articles
+            articles = articles,
+            articles_en = null
         )
         val saved = newsEntityRepository.save(newsEntity)
         return ResponseNews(
@@ -64,7 +79,49 @@ class NewsAndArticleAdapterImpl(
             articles = newsData.articles,
             topic = topic,
             date = date,
-            id = saved.id
+            id = saved.id,
+            articles_en = null
         )
+    }
+
+    @Transactional
+    override fun updateNewsEn(q: String, date: LocalDate, newsData: NewsData): ResponseNews {
+        val newsEntity = newsEntityRepository.findByTopicAndDate(q, date) ?: throw IllegalArgumentException()
+        val articlesEn: List<ArticleEntity> = newsData.articles
+            .map { article ->
+                ArticleEntity(
+                    null,
+                    article.title,
+                    article.description,
+                    article.url,
+                    article.image,
+                    null,
+                    null
+                )
+            }
+        newsEntity.updateArticlesEn(articlesEn)
+        return ResponseNews(
+            totalResults = newsEntity.totalResults,
+            articles = newsEntity.articles.map { article ->
+                ArticleData(
+                    title = article.title,
+                    description = article.description,
+                    url = article.url,
+                    image = article.image,
+                )
+            },
+            topic = newsEntity.topic,
+            date = newsEntity.date,
+            id = newsEntity.id,
+            articles_en = newsEntity.articles_en?.map { article ->
+                ArticleData(
+                    title = article.title,
+                    description = article.description,
+                    url = article.url,
+                    image = article.image,
+                )
+            }
+        )
+
     }
 }

@@ -17,11 +17,17 @@ class NewsEntity(
     @Column(name = "news_id")
     val id: Long? = null,
     @Column(name = "topic")
-    val topic : String,
+    val topic: String,
     @Column(name = "date")
-    val date : LocalDate,
+    val date: LocalDate,
     @Column(name = "total_results")
     val totalResults: Int,
     @OneToMany(mappedBy = "news", cascade = [CascadeType.ALL])
-    val articles: List<ArticleEntity>
-)
+    val articles: List<ArticleEntity>,
+    @OneToMany(mappedBy = "news", cascade = [CascadeType.ALL])
+    var articles_en: List<ArticleEntity>?
+){
+    fun updateArticlesEn(articlesEn: List<ArticleEntity>){
+        this.articles_en = articlesEn
+    }
+}
