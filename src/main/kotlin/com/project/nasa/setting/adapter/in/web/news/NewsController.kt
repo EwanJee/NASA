@@ -2,9 +2,9 @@ package com.project.nasa.setting.adapter.`in`.web.news
 
 import com.project.nasa.setting.adapter.out.persistence.service.news.NewsAndArticleAdapter
 import com.project.nasa.setting.adapter.out.persistence.service.news.dto.response.ResponseNews
-import com.project.nasa.setting.adapter.out.web.sse.repository.SseEmitters
-import com.project.nasa.setting.adapter.out.web.sse.service.CounterAdapter
-import com.project.nasa.setting.adapter.out.web.sse.service.impl.CounterAdapterImpl
+import com.project.nasa.setting.adapter.out.sse.repository.SseEmitters
+import com.project.nasa.setting.adapter.out.sse.service.CounterAdapter
+import com.project.nasa.setting.adapter.out.sse.service.impl.CounterAdapterImpl
 import com.project.nasa.setting.application.port.out.usecase.news.NewsPort
 import io.swagger.v3.oas.annotations.Operation
 import io.swagger.v3.oas.annotations.tags.Tag

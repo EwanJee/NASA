@@ -1,7 +1,7 @@
-package com.project.nasa.setting.adapter.out.web.sse.controller
+package com.project.nasa.setting.adapter.`in`.web.sse
 
-import com.project.nasa.setting.adapter.out.web.sse.repository.SseEmitters
-import com.project.nasa.setting.adapter.out.web.sse.service.CounterAdapter
+import com.project.nasa.setting.adapter.out.sse.repository.SseEmitters
+import com.project.nasa.setting.adapter.out.sse.service.CounterAdapter
 import io.swagger.v3.oas.annotations.Operation
 import io.swagger.v3.oas.annotations.tags.Tag
 import org.springframework.http.MediaType

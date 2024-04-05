@@ -1,4 +1,4 @@
-package com.project.nasa.setting.adapter.out.web.sse.repository
+package com.project.nasa.setting.adapter.out.sse.repository
 
 
 import org.springframework.stereotype.Component

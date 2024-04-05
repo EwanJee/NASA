@@ -1,7 +1,7 @@
-package com.project.nasa.setting.adapter.out.web.sse.service.impl
+package com.project.nasa.setting.adapter.out.sse.service.impl
 
-import com.project.nasa.setting.adapter.out.web.sse.repository.SseEmitters
-import com.project.nasa.setting.adapter.out.web.sse.service.CounterAdapter
+import com.project.nasa.setting.adapter.out.sse.repository.SseEmitters
+import com.project.nasa.setting.adapter.out.sse.service.CounterAdapter
 import org.slf4j.LoggerFactory
 import org.springframework.scheduling.annotation.Scheduled
 import org.springframework.stereotype.Service
