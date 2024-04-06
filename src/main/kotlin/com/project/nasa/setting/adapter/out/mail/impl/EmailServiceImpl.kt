@@ -1,5 +1,6 @@
-package com.project.nasa.setting.adapter.out.mail
+package com.project.nasa.setting.adapter.out.mail.impl
 
+import com.project.nasa.setting.adapter.out.mail.EmailService
 import org.springframework.core.io.InputStreamSource
 import org.springframework.core.io.UrlResource
 import org.springframework.mail.javamail.JavaMailSender

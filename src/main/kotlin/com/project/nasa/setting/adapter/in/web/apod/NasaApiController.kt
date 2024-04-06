@@ -11,7 +11,9 @@ import org.springframework.hateoas.EntityModel
 import org.springframework.hateoas.server.mvc.WebMvcLinkBuilder
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.GetMapping
+import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.PutMapping
+import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RequestParam
 import org.springframework.web.bind.annotation.RestController
@@ -39,12 +41,20 @@ class NasaApiController(
     }
     @Operation(summary = "APOD 별점 올리기", description = "APOD 별점 올리기")
     @Description("해당 APOD의 StarPoint를 1 올려준다")
-    @PutMapping("/apod")
-    fun updateStarPoint(@RequestParam("date") @DateTimeFormat(pattern = "yyyy-MM-dd") date : LocalDate, @RequestParam("id") id : Long) : ResponseEntity<EntityModel<Long>>{
+    @PutMapping("/apod/addPoint")
+    fun updateStarPoint(@RequestParam("id") id : Long) : ResponseEntity<EntityModel<Long>>{
         val resource = EntityModel.of(apodAdapter.addOnetoStarPoint(id))
-        val link = WebMvcLinkBuilder.linkTo(WebMvcLinkBuilder.methodOn(NasaApiController::class.java).updateStarPoint(date,id))
+        val link = WebMvcLinkBuilder.linkTo(WebMvcLinkBuilder.methodOn(NasaApiController::class.java).updateStarPoint(id))
         resource.add(link.withRel("self"))
         return ResponseEntity.ok(resource)
     }
-
+    @Operation(summary = "APOD 사진 메일 보내기", description = "APOD 사진을 이메일로 보내기")
+    @Description("해당 APOD의 사진을 이메일로 보내준다")
+    @PostMapping("/apod/sendImage")
+    fun sendImage(@RequestParam("id") id : Long, @RequestBody email : String) : ResponseEntity<EntityModel<Unit>> {
+        val resource = EntityModel.of(apodAdapter.sendImageToEmail(id,email))
+        val link = WebMvcLinkBuilder.linkTo(WebMvcLinkBuilder.methodOn(NasaApiController::class.java).sendImage(id,email))
+        resource.add(link.withRel("self"))
+        return ResponseEntity.ok(resource)
+    }
 }
