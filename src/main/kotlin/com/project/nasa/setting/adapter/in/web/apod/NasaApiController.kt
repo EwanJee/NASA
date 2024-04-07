@@ -1,5 +1,6 @@
 package com.project.nasa.setting.adapter.`in`.web.apod
 
+import com.project.nasa.setting.adapter.out.mail.dto.response.ResponseEmail
 import com.project.nasa.setting.adapter.out.persistence.service.apod.ApodAdapter
 import com.project.nasa.setting.adapter.out.persistence.service.dto.response.ResponseApod
 import com.project.nasa.setting.application.port.out.usecase.apod.ApodPort
@@ -51,7 +52,7 @@ class NasaApiController(
     @Operation(summary = "APOD 사진 메일 보내기", description = "APOD 사진을 이메일로 보내기")
     @Description("해당 APOD의 사진을 이메일로 보내준다")
     @PostMapping("/apod/sendImage")
-    fun sendImage(@RequestParam("id") id : Long, @RequestBody email : String) : ResponseEntity<EntityModel<Unit>> {
+    fun sendImage(@RequestParam("id") id : Long, @RequestBody email : String) : ResponseEntity<EntityModel<ResponseEmail>> {
         val resource = EntityModel.of(apodAdapter.sendImageToEmail(id,email))
         val link = WebMvcLinkBuilder.linkTo(WebMvcLinkBuilder.methodOn(NasaApiController::class.java).sendImage(id,email))
         resource.add(link.withRel("self"))

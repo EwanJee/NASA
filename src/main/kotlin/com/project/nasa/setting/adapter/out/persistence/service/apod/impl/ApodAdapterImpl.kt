@@ -1,5 +1,7 @@
 package com.project.nasa.setting.adapter.out.persistence.service.apod.impl
 
+import com.project.nasa.setting.adapter.out.mail.EmailService
+import com.project.nasa.setting.adapter.out.mail.dto.response.ResponseEmail
 import com.project.nasa.setting.adapter.out.persistence.entity.apod.ApodEntity
 import com.project.nasa.setting.adapter.out.persistence.repository.apod.ApodEntityRepository
 import com.project.nasa.setting.adapter.out.persistence.service.apod.ApodAdapter
@@ -12,7 +14,8 @@ import java.time.LocalDate
 @Transactional(readOnly = true)
 @Service
 class ApodAdapterImpl(
-    private val apodEntityRepository: ApodEntityRepository
+    private val apodEntityRepository: ApodEntityRepository,
+    private val emailService: EmailService
 ) : ApodAdapter {
     override fun getByDate(date: LocalDate): ResponseApod? {
         val apodEntity: ApodEntity = apodEntityRepository.findByDate(date) ?: return null
@@ -68,5 +71,9 @@ class ApodAdapterImpl(
         val stored: ApodEntity = apodEntityRepository.findById(id)
             .orElseThrow { IllegalArgumentException("해당 정보가 존재하지 않습니다") }
         return stored.addOneToStarPoint()
+    }
+
+    override fun sendImageToEmail(id: Long, email: String): ResponseEmail {
+        TODO("Not yet implemented")
     }
 }
