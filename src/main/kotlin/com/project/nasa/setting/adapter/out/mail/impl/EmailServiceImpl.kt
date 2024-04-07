@@ -1,5 +1,7 @@
 package com.project.nasa.setting.adapter.out.mail.impl
 
+import com.project.nasa.common.exception.ErrorCode
+import com.project.nasa.common.exception.email.EmailException
 import com.project.nasa.setting.adapter.out.mail.EmailService
 import com.project.nasa.setting.adapter.out.mail.dto.response.ResponseEmail
 import org.springframework.core.io.InputStreamSource
@@ -25,6 +27,7 @@ class EmailServiceImpl(
             mailSender.send(message)
         } catch (e: Exception) {
             e.printStackTrace()
+            throw EmailException(ErrorCode.EMAIL_SEND_FAILED)
         }
         return ResponseEmail(url, to)
     }
