@@ -1,5 +1,7 @@
 package com.project.nasa.setting.adapter.out.persistence.service.apod.impl
 
+import com.project.nasa.common.exception.ErrorCode
+import com.project.nasa.common.exception.apod.ApodException
 import com.project.nasa.setting.adapter.out.mail.EmailService
 import com.project.nasa.setting.adapter.out.mail.dto.response.ResponseEmail
 import com.project.nasa.setting.adapter.out.persistence.entity.apod.ApodEntity
@@ -74,6 +76,12 @@ class ApodAdapterImpl(
     }
 
     override fun sendImageToEmail(id: Long, email: String): ResponseEmail {
-        TODO("Not yet implemented")
+        val apod: ApodEntity = apodEntityRepository.findById(id)
+            .orElseThrow { throw ApodException(ErrorCode.EMAIL_SEND_FAILED) }
+        emailService.sendImage(email, apod.title, apod.url)
+        return ResponseEmail(
+            url = apod.url,
+            emailAddress = email
+        )
     }
 }
