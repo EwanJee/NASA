@@ -1,4 +1,4 @@
-package com.project.nasa.setting.adapter.out.persistence.repository
+package com.project.nasa.setting.adapter.out.persistence.repository.member
 
 import com.project.nasa.setting.adapter.out.persistence.entity.MemberEntity
 import org.springframework.data.jpa.repository.JpaRepository

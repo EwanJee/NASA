@@ -1,5 +1,6 @@
 package com.project.nasa.setting.adapter.out.persistence.entity.apod
 
+import com.project.nasa.setting.adapter.out.persistence.entity.like.LikeEntity
 import jakarta.annotation.Nullable
 import jakarta.persistence.*
 import lombok.AccessLevel
@@ -8,7 +9,7 @@ import org.springframework.format.annotation.DateTimeFormat
 import java.time.LocalDate
 
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-@Table(name = "APOD")
+@Table(name = "apod")
 @Entity
 class ApodEntity(
     @Id @GeneratedValue(strategy = GenerationType.AUTO)
@@ -26,19 +27,14 @@ class ApodEntity(
     @Column(name = "url")
     val url: String,
     @Column(name = "hdurl")
-    val hdurl : String,
+    val hdurl: String,
     @Nullable
     @Column(name = "translated_explanation", length = 2000)
     var translatedExplanation: String? = null,
-    @Column(name = "star_point")
-    var starPoint: Long = 0
+    @OneToMany(mappedBy = "apod")
+    val likes: MutableList<LikeEntity>
 ) {
     fun updateTranslation(explanation: String) {
         this.translatedExplanation = explanation
-    }
-
-    fun addOneToStarPoint(): Long {
-        val updated = this.starPoint++
-        return updated
     }
 }

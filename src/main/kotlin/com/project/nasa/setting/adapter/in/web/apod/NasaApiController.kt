@@ -1,8 +1,10 @@
 package com.project.nasa.setting.adapter.`in`.web.apod
 
+import com.project.nasa.setting.adapter.`in`.web.apod.dto.RequestLike
 import com.project.nasa.setting.adapter.out.mail.dto.response.ResponseEmail
 import com.project.nasa.setting.adapter.out.persistence.service.apod.ApodAdapter
 import com.project.nasa.setting.adapter.out.persistence.service.dto.response.ResponseApod
+import com.project.nasa.setting.adapter.out.persistence.service.like.LikeAdapter
 import com.project.nasa.setting.application.port.out.usecase.apod.ApodPort
 import io.swagger.v3.oas.annotations.Operation
 import io.swagger.v3.oas.annotations.tags.Tag
@@ -25,7 +27,8 @@ import java.time.LocalDate
 @RestController
 class NasaApiController(
     private val apodPort: ApodPort,
-    private val apodAdapter: ApodAdapter
+    private val apodAdapter: ApodAdapter,
+    private val likeAdapter : LikeAdapter
 ) {
     @Operation(summary = "APOD 받기" , description = "APOD = Astronomy Picture of the Day")
     @Description("API로부터 APOD를 받고 DB에 저장한다")
@@ -43,9 +46,9 @@ class NasaApiController(
     @Operation(summary = "APOD 별점 올리기", description = "APOD 별점 올리기")
     @Description("해당 APOD의 StarPoint를 1 올려준다")
     @PutMapping("/apod/addPoint")
-    fun updateStarPoint(@RequestParam("id") id : Long) : ResponseEntity<EntityModel<Long>>{
-        val resource = EntityModel.of(apodAdapter.addOnetoStarPoint(id))
-        val link = WebMvcLinkBuilder.linkTo(WebMvcLinkBuilder.methodOn(NasaApiController::class.java).updateStarPoint(id))
+    fun updateStarPoint(@RequestBody requestLike: RequestLike) : ResponseEntity<EntityModel<Int>>{
+        val resource = EntityModel.of(likeAdapter.incrementLike(requestLike))
+        val link = WebMvcLinkBuilder.linkTo(WebMvcLinkBuilder.methodOn(NasaApiController::class.java).updateStarPoint(requestLike))
         resource.add(link.withRel("self"))
         return ResponseEntity.ok(resource)
     }

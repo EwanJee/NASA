@@ -2,6 +2,7 @@ package com.project.nasa.setting.adapter.out.persistence.service.apod.impl
 
 import com.project.nasa.common.exception.ErrorCode
 import com.project.nasa.common.exception.apod.ApodException
+import com.project.nasa.setting.adapter.`in`.web.apod.dto.RequestLike
 import com.project.nasa.setting.adapter.out.mail.EmailService
 import com.project.nasa.setting.adapter.out.mail.dto.response.ResponseEmail
 import com.project.nasa.setting.adapter.out.persistence.entity.apod.ApodEntity
@@ -40,7 +41,8 @@ class ApodAdapterImpl(
             media_type = apodData.mediaType,
             title = apodData.title,
             url = apodData.url,
-            hdurl = apodData.hdurl
+            hdurl = apodData.hdurl,
+            likes = mutableListOf()
         )
         val saved = apodEntityRepository.save(apodEntity)
         return ResponseApod(
@@ -66,13 +68,6 @@ class ApodAdapterImpl(
         stored.updateTranslation(translated)
         val translatedExplanation = stored.translatedExplanation ?: throw IllegalArgumentException("")
         return translatedExplanation
-    }
-
-    @Transactional
-    override fun addOnetoStarPoint(id: Long): Long {
-        val stored: ApodEntity = apodEntityRepository.findById(id)
-            .orElseThrow { IllegalArgumentException("해당 정보가 존재하지 않습니다") }
-        return stored.addOneToStarPoint()
     }
 
     override fun sendImageToEmail(id: Long, email: String): ResponseEmail {
