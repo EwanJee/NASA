@@ -1,4 +1,3 @@
-# localtest 용
 spring:
   profiles:
     include: secret
