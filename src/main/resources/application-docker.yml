@@ -1,23 +1,22 @@
 spring:
-
   datasource:
-    url: jdbc:postgresql://db:5433/nasa
     driver-class-name: org.postgresql.Driver
     username: nasa
     password: password
+    url: jdbc:postgresql://localhost:5432/nasa
   mvc:
     format:
       date: yyyy-MM-dd
   jpa:
     hibernate:
-      ddl-auto: update
+      ddl-auto: create
     properties:
       hibernate:
         show_sql: true
     open-in-view: false # DB 커넥션 고갈 방지
   data:
     redis:
-      port: 6380
+      port: 6379
       host: redis
 
 # Swagger
@@ -41,3 +40,4 @@ springdoc:
 server:
   error:
     include-stacktrace: never
+

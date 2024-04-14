@@ -10,9 +10,9 @@ services:
 
     image: nasa-image
     ports:
-      - "8080:8080"
+      - "8081:8081"
     environment:
-      SPRING_DATASOURCZE_URL: jdbc:postgresql://db:5433/nasa
+      SPRING_DATASOURCZE_URL: jdbc:postgresql://db:5432/nasa
       SPRING_DATASOURCE_USERNAME: nasa
       SPRING_DATASOURCE_PASSWORD: password
       SPRING_REDIS_HOST: redis
@@ -25,7 +25,7 @@ services:
   db:
     image: postgres:latest
     ports:
-      - "5433:5433"
+      - "5432:5432"
     environment:
       POSTGRES_DB: nasa
       POSTGRES_USER: nasa
@@ -35,7 +35,7 @@ services:
   redis:
     image: redis:latest
     ports:
-      - "6380:6380"
+      - "6379:6379"
     networks:
       - nasaNetwork
 
