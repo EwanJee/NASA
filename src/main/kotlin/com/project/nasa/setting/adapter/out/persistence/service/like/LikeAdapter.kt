@@ -3,5 +3,5 @@ package com.project.nasa.setting.adapter.out.persistence.service.like
 import com.project.nasa.setting.adapter.`in`.web.apod.dto.RequestLike
 
 interface LikeAdapter {
-    fun incrementLike(requestLike: RequestLike): Int
+    fun pressLike(requestLike: RequestLike): Int
 }

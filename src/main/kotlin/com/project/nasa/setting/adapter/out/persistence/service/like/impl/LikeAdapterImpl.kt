@@ -1,5 +1,8 @@
 package com.project.nasa.setting.adapter.out.persistence.service.like.impl
 
+import com.project.nasa.common.exception.ErrorCode
+import com.project.nasa.common.exception.apod.ApodException
+import com.project.nasa.common.exception.member.MemberException
 import com.project.nasa.setting.adapter.`in`.web.apod.dto.RequestLike
 import com.project.nasa.setting.adapter.out.persistence.entity.MemberEntity
 import com.project.nasa.setting.adapter.out.persistence.entity.apod.ApodEntity
@@ -19,23 +22,27 @@ class LikeAdapterImpl(
     val likeEntityRepository: LikeEntityRepository
 ) : LikeAdapter {
     @Transactional
-    override fun incrementLike(requestLike: RequestLike): Int {
-        if (likeEntityRepository.existsByMemberIdAndApodId(requestLike.memberId, requestLike.apodId)) {
-            throw IllegalArgumentException("이미 좋아요를 눌렀습니다")
-        }
+    override fun pressLike(requestLike: RequestLike): Int {
         val apod: ApodEntity = apodEntityRepository.findById(requestLike.apodId)
-            .orElseThrow { IllegalArgumentException("") }
+            .orElseThrow { ApodException(ErrorCode.APOD_NOT_FOUND) }
         val member: MemberEntity = memberEntityJpaRepository.findById(requestLike.memberId)
-            .orElseThrow { IllegalArgumentException("") }
-        val likeEntity: LikeEntity = likeEntityRepository.save(
-            LikeEntity(
-                id = null,
-                apod = apod,
-                member = member
+            .orElseThrow { MemberException(ErrorCode.MEMBER_NOT_FOUND) }
+        if (!likeEntityRepository.existsByMemberIdAndApodId(requestLike.memberId, requestLike.apodId)) { // 좋아요 1추가
+            val likeEntity: LikeEntity = likeEntityRepository.save(
+                LikeEntity(
+                    id = null,
+                    apod = apod,
+                    member = member
+                )
             )
-        )
-        apod.likes.add(likeEntity)
-        member.likes.add(likeEntity)
+            apod.likes.add(likeEntity)
+            member.likes.add(likeEntity)
+        }
+        else{ // 좋아요 1감소
+            val like : LikeEntity =
+                likeEntityRepository.findByMemberIdAndApodId(requestLike.memberId, requestLike.apodId)
+            likeEntityRepository.delete(like)
+        }
         return apod.likes.size
     }
 }

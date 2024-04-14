@@ -43,11 +43,11 @@ class NasaApiController(
         resource.add(link.withRel("self"))
         return ResponseEntity.ok(resource)
     }
-    @Operation(summary = "APOD 별점 올리기", description = "APOD 별점 올리기")
-    @Description("해당 APOD의 StarPoint를 1 올려준다")
-    @PutMapping("/apod/addPoint")
+    @Operation(summary = "APOD 별점 올리기 or 내리기", description = "APOD 별점 올리기 or 내리기")
+    @Description("해당 APOD의 LIKE 를 1 올려주거나 1을 감소한다")
+    @PutMapping("/apod/pressLike")
     fun updateStarPoint(@RequestBody requestLike: RequestLike) : ResponseEntity<EntityModel<Int>>{
-        val resource = EntityModel.of(likeAdapter.incrementLike(requestLike))
+        val resource = EntityModel.of(likeAdapter.pressLike(requestLike))
         val link = WebMvcLinkBuilder.linkTo(WebMvcLinkBuilder.methodOn(NasaApiController::class.java).updateStarPoint(requestLike))
         resource.add(link.withRel("self"))
         return ResponseEntity.ok(resource)
