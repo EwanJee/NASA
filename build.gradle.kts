@@ -35,6 +35,8 @@ repositories {
 }
 
 dependencies {
+    //redis
+    implementation("org.springframework.boot:spring-boot-starter-data-redis")
     //Swagger
     implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:2.0.2")
     //Spring Security

@@ -1,12 +1,10 @@
 package com.project.nasa.setting.adapter.out.persistence.entity
 
-import com.project.nasa.setting.adapter.out.persistence.entity.like.LikeEntity
 import jakarta.persistence.Column
 import jakarta.persistence.Entity
 import jakarta.persistence.GeneratedValue
 import jakarta.persistence.GenerationType
 import jakarta.persistence.Id
-import jakarta.persistence.OneToMany
 import jakarta.persistence.Table
 import jakarta.validation.constraints.Email
 import jakarta.validation.constraints.Min
@@ -29,9 +27,7 @@ class MemberEntity(
     var password: String,
     @CreatedDate
     @Column(name = "created")
-    val created: LocalDateTime,
-    @OneToMany(mappedBy = "member")
-    val likes: MutableList<LikeEntity>
+    val created: LocalDateTime
 ) {
     fun updateNickname(name: String) {
         this.nickname = name

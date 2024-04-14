@@ -1,6 +1,5 @@
 package com.project.nasa.setting.adapter.out.persistence.entity.apod
 
-import com.project.nasa.setting.adapter.out.persistence.entity.like.LikeEntity
 import jakarta.annotation.Nullable
 import jakarta.persistence.*
 import lombok.AccessLevel
@@ -30,9 +29,7 @@ class ApodEntity(
     val hdurl: String,
     @Nullable
     @Column(name = "translated_explanation", length = 2000)
-    var translatedExplanation: String? = null,
-    @OneToMany(mappedBy = "apod")
-    val likes: MutableList<LikeEntity>
+    var translatedExplanation: String? = null
 ) {
     fun updateTranslation(explanation: String) {
         this.translatedExplanation = explanation

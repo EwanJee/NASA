@@ -41,8 +41,7 @@ class ApodAdapterImpl(
             media_type = apodData.mediaType,
             title = apodData.title,
             url = apodData.url,
-            hdurl = apodData.hdurl,
-            likes = mutableListOf()
+            hdurl = apodData.hdurl
         )
         val saved = apodEntityRepository.save(apodEntity)
         return ResponseApod(
