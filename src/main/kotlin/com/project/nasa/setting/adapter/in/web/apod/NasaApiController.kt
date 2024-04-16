@@ -1,6 +1,7 @@
 package com.project.nasa.setting.adapter.`in`.web.apod
 
-import com.project.nasa.setting.adapter.`in`.web.apod.dto.RequestLike
+import com.project.nasa.setting.adapter.`in`.web.apod.dto.request.RequestLike
+import com.project.nasa.setting.adapter.`in`.web.apod.dto.response.ResponseLike
 import com.project.nasa.setting.adapter.out.mail.dto.response.ResponseEmail
 import com.project.nasa.setting.adapter.out.persistence.service.apod.ApodAdapter
 import com.project.nasa.setting.adapter.out.persistence.service.dto.response.ResponseApod
@@ -46,7 +47,7 @@ class NasaApiController(
     @Operation(summary = "APOD 별점 올리기 or 내리기", description = "APOD 별점 올리기 or 내리기")
     @Description("해당 APOD의 LIKE 를 1 올려주거나 1을 감소한다")
     @PutMapping("/apod/pressLike")
-    fun updateStarPoint(@RequestBody requestLike: RequestLike) : ResponseEntity<EntityModel<Long>>{
+    fun updateStarPoint(@RequestBody requestLike: RequestLike) : ResponseEntity<EntityModel<ResponseLike>>{
         val resource = EntityModel.of(likeAdapter.pressLike(requestLike))
         val link = WebMvcLinkBuilder.linkTo(WebMvcLinkBuilder.methodOn(NasaApiController::class.java).updateStarPoint(requestLike))
         resource.add(link.withRel("self"))

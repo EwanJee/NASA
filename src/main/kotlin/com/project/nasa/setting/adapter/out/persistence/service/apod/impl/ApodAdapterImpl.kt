@@ -2,7 +2,6 @@ package com.project.nasa.setting.adapter.out.persistence.service.apod.impl
 
 import com.project.nasa.common.exception.ErrorCode
 import com.project.nasa.common.exception.apod.ApodException
-import com.project.nasa.setting.adapter.`in`.web.apod.dto.RequestLike
 import com.project.nasa.setting.adapter.out.mail.EmailService
 import com.project.nasa.setting.adapter.out.mail.dto.response.ResponseEmail
 import com.project.nasa.setting.adapter.out.persistence.entity.apod.ApodEntity

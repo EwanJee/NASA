@@ -1,6 +1,5 @@
 package com.project.nasa.setting.adapter.out.persistence.service.apod
 
-import com.project.nasa.setting.adapter.`in`.web.apod.dto.RequestLike
 import com.project.nasa.setting.adapter.out.mail.dto.response.ResponseEmail
 import com.project.nasa.setting.adapter.out.persistence.service.dto.response.ResponseApod
 import com.project.nasa.setting.application.port.out.response.apod.ApodData
