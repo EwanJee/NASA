@@ -16,6 +16,12 @@ class SecurityConfig {
             .authorizeHttpRequests { requests ->
                 requests.requestMatchers(AntPathRequestMatcher("/**")).permitAll()
             } // 인증되지 않은 모든 페이지의 요청 허락. 로그인 하지 않더라도 모든 페이지에 접근할 수 있다.
+            .csrf { csrf -> csrf.ignoringRequestMatchers(AntPathRequestMatcher("/api/**")) }
+        /*
+         * csrf : 사용자가 웹사이트에 로그인한 상태에서 공격자가 준비한 악성 웹사이트나 이메일 등을 통해 사용자의 브라우저가 자동으로 요청을 보내도록 하는 것
+         * csrf 토큰을 발행하는 기능이 없는 Swagger는 예외 처리 (/api/**)
+         */
+         */
         return http.build()
     }
 }
