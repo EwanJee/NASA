@@ -35,6 +35,8 @@ repositories {
 }
 
 dependencies {
+    //ngrinder
+    implementation("org.ngrinder:ngrinder-groovy:3.5.9") // 버전 3.5.9 사용
     //redis
     implementation("org.springframework.boot:spring-boot-starter-data-redis")
     //Swagger
