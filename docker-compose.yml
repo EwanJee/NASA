@@ -6,7 +6,7 @@ services:
   app:
     build:
       context: .
-#      dockerfile: Dockerfile
+      # dockerfile: Dockerfile
 
     image: nasa-image
     ports:
@@ -22,7 +22,7 @@ services:
       - redis
     networks:
       - nasaNetwork
-  db:
+  db: # postgres 컨테이너
     image: postgres:latest
     ports:
       - "5432:5432"
@@ -32,12 +32,33 @@ services:
       POSTGRES_PASSWORD: password
     networks:
       - nasaNetwork
-  redis:
+  redis: # redis 컨테이너
     image: redis:latest
     ports:
       - "6379:6379"
     networks:
       - nasaNetwork
+  ngrinder-controller: # ngrinder 컨테이너
+    image: ngrinder/controller:3.5.5
+    restart: always
+    ports:
+      - "9000:80"
+    environment:
+      NGRINDER_ADMIN_USERID: admin
+      NGRINDER_ADMIN_PASSWORD: admin
+    networks:
+      - nasaNetwork
+  ngrinder-agent:
+    image: ngrinder/agent:3.5.5
+    restart: always
+    environment:
+      NGRINDER_CONTROLLER: ngrinder-controller:80
+    depends_on:
+      - ngrinder-controller
+    networks:
+      - nasaNetwork
+
+
 
 networks:
   nasaNetwork:
