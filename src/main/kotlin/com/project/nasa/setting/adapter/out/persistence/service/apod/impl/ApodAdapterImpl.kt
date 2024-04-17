@@ -73,7 +73,7 @@ class ApodAdapterImpl(
             .orElseThrow { throw ApodException(ErrorCode.EMAIL_SEND_FAILED) }
         emailService.sendImage(email, apod.title, apod.url)
         return ResponseEmail(
-            url = apod.url,
+            body = apod.url,
             emailAddress = email
         )
     }
