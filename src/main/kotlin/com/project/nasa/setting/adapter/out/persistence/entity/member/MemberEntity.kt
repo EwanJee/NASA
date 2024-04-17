@@ -1,4 +1,4 @@
-package com.project.nasa.setting.adapter.out.persistence.entity
+package com.project.nasa.setting.adapter.out.persistence.entity.member
 
 import jakarta.persistence.Column
 import jakarta.persistence.Entity
@@ -20,7 +20,7 @@ class MemberEntity(
     @Column(name = "nickname")
     var nickname: String,
     @Email
-    @Column(name = "email")
+    @Column(name = "email", unique = true)
     val email: String,
     @Min(value = 6)
     @Column(name = "password")
