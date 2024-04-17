@@ -16,8 +16,8 @@ import java.time.LocalDateTime
 class MemberEntity(
     @Id @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
-    val id: Long? = null,
-    @Column(name = "nickname")
+    val id: Long?,
+    @Column(name = "nickname", unique = true)
     var nickname: String,
     @Email
     @Column(name = "email", unique = true)
@@ -27,7 +27,7 @@ class MemberEntity(
     var password: String,
     @CreatedDate
     @Column(name = "created")
-    val created: LocalDateTime
+    val created: LocalDateTime?
 ) {
     fun updateNickname(name: String) {
         this.nickname = name
