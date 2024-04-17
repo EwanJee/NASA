@@ -1,7 +1,5 @@
 name: nasa
 
-version: "3.8"
-
 services:
   app:
     build:
@@ -38,28 +36,30 @@ services:
       - "6379:6379"
     networks:
       - nasaNetwork
-  ngrinder-controller: # ngrinder 컨테이너
-    image: ngrinder/controller:3.5.5
+  controller: # ngrinder 컨테이너
+    image: ngrinder/controller
     restart: always
     ports:
       - "9000:80"
+      - "16001:16001"
+      - "12000-12009:12000-12009"
     environment:
       NGRINDER_ADMIN_USERID: admin
       NGRINDER_ADMIN_PASSWORD: admin
     networks:
       - nasaNetwork
-  ngrinder-agent:
-    image: ngrinder/agent:3.5.5
+  agent:
+    image: ngrinder/agent
     restart: always
-    environment:
-      NGRINDER_CONTROLLER: ngrinder-controller:80
     depends_on:
-      - ngrinder-controller
+      - controller
+    command:
+      - 'controller:80'
     networks:
       - nasaNetwork
 
 
 
 networks:
-  nasaNetwork:
+  nasaNetwork: {}
 
