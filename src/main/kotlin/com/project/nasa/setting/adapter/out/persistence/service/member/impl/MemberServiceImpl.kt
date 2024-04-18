@@ -1,10 +1,10 @@
 package com.project.nasa.setting.adapter.out.persistence.service.member.impl
 
-import com.project.nasa.setting.adapter.`in`.web.member.ResponseMember
+import com.project.nasa.setting.adapter.`in`.web.member.dto.RequestMember
+import com.project.nasa.setting.adapter.`in`.web.member.dto.ResponseMember
 import com.project.nasa.setting.adapter.out.persistence.entity.member.MemberEntity
 import com.project.nasa.setting.adapter.out.persistence.repository.member.MemberEntityRepository
 import com.project.nasa.setting.adapter.out.persistence.service.member.MemberService
-import org.springframework.mail.javamail.JavaMailSender
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder
 import org.springframework.stereotype.Service
 
@@ -34,5 +34,9 @@ class MemberServiceImpl(
             email = saved.email,
             created = saved.created
         )
+    }
+
+    override fun createMember(requestMember: RequestMember): ResponseMember {
+        TODO("Not yet implemented")
     }
 }

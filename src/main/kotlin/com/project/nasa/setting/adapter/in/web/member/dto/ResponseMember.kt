@@ -1,4 +1,4 @@
-package com.project.nasa.setting.adapter.`in`.web.member
+package com.project.nasa.setting.adapter.`in`.web.member.dto
 
 import java.time.LocalDateTime
 
