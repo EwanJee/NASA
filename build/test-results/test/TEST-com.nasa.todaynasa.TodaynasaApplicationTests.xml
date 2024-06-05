@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.nasa.todaynasa.TodaynasaApplicationTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2024-06-05T11:21:47" hostname="Coder.local" time="0.448">
+<testsuite name="com.nasa.todaynasa.TodaynasaApplicationTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2024-06-05T11:28:47" hostname="Coder.local" time="0.474">
   <properties/>
-  <testcase name="contextLoads()" classname="com.nasa.todaynasa.TodaynasaApplicationTests" time="0.448"/>
-  <system-out><![CDATA[20:21:46.677 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.nasa.todaynasa.TodaynasaApplicationTests]: TodaynasaApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-20:21:46.725 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.nasa.todaynasa.TodaynasaApplication for test class com.nasa.todaynasa.TodaynasaApplicationTests
+  <testcase name="contextLoads()" classname="com.nasa.todaynasa.TodaynasaApplicationTests" time="0.474"/>
+  <system-out><![CDATA[20:28:46.687 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.nasa.todaynasa.TodaynasaApplicationTests]: TodaynasaApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+20:28:46.737 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.nasa.todaynasa.TodaynasaApplication for test class com.nasa.todaynasa.TodaynasaApplicationTests
   .   ____          _            __ _ _
  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
 ( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
@@ -13,9 +13,13 @@
 
  :: Spring Boot ::                (v3.3.0)
 
-2024-06-05T20:21:46.901+09:00  INFO 9431 --- [todaynasa] [    Test worker] c.n.todaynasa.TodaynasaApplicationTests  : Starting TodaynasaApplicationTests using Java 21.0.1 with PID 9431 (started by jeeewan in /Users/jeeewan/GitHub/NASA)
-2024-06-05T20:21:46.902+09:00  INFO 9431 --- [todaynasa] [    Test worker] c.n.todaynasa.TodaynasaApplicationTests  : No active profile set, falling back to 1 default profile: "default"
-2024-06-05T20:21:47.627+09:00  INFO 9431 --- [todaynasa] [    Test worker] c.n.todaynasa.TodaynasaApplicationTests  : Started TodaynasaApplicationTests in 0.828 seconds (process running for 1.391)
+2024-06-05T20:28:46.927+09:00  INFO 10143 --- [todaynasa] [    Test worker] c.n.todaynasa.TodaynasaApplicationTests  : Starting TodaynasaApplicationTests using Java 21.0.1 with PID 10143 (started by jeeewan in /Users/jeeewan/GitHub/NASA)
+2024-06-05T20:28:46.927+09:00  INFO 10143 --- [todaynasa] [    Test worker] c.n.todaynasa.TodaynasaApplicationTests  : No active profile set, falling back to 1 default profile: "default"
+2024-06-05T20:28:47.258+09:00  INFO 10143 --- [todaynasa] [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2024-06-05T20:28:47.260+09:00  INFO 10143 --- [todaynasa] [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2024-06-05T20:28:47.276+09:00  INFO 10143 --- [todaynasa] [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 7 ms. Found 0 Redis repository interfaces.
+2024-06-05T20:28:47.760+09:00 ERROR 10143 --- [todaynasa] [    Test worker] i.n.r.d.DnsServerAddressStreamProviders  : Unable to load io.netty.resolver.dns.macos.MacOSDnsServerAddressStreamProvider, fallback to system defaults. This may result in incorrect DNS resolutions on MacOS. Check whether you have a dependency on 'io.netty:netty-resolver-dns-native-macos'. Use DEBUG level to see the full stack: java.lang.UnsatisfiedLinkError: failed to load the required native library
+2024-06-05T20:28:47.958+09:00  INFO 10143 --- [todaynasa] [    Test worker] c.n.todaynasa.TodaynasaApplicationTests  : Started TodaynasaApplicationTests in 1.142 seconds (process running for 1.758)
 ]]></system-out>
   <system-err><![CDATA[WARNING: A Java agent has been loaded dynamically (/Users/jeeewan/.gradle/caches/modules-2/files-2.1/net.bytebuddy/byte-buddy-agent/1.14.16/4a451ee6484abac3a498df0f3b33ed00a6fced4d/byte-buddy-agent-1.14.16.jar)
 WARNING: If a serviceability tool is in use, please run with -XX:+EnableDynamicAgentLoading to hide this warning
