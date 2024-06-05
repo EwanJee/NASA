@@ -13,7 +13,6 @@ import org.springframework.context.annotation.Configuration
 @OpenAPIDefinition(info = Info(title = "NASA API DOCS", description = "Description", version = "v1"))
 @Configuration
 class SwaggerConfig {
-    private val BEARER_TOKEN_PREFIX : String = "Bearer"
 
     @Bean
     fun openAPI(): OpenAPI {
@@ -30,5 +29,9 @@ class SwaggerConfig {
         return OpenAPI()
             .addSecurityItem(securityRequirement)
             .components(components)
+    }
+
+    companion object{
+        private const val BEARER_TOKEN_PREFIX : String = "Bearer"
     }
 }

@@ -11,20 +11,16 @@ import reactor.netty.http.client.HttpClient
 import java.time.Duration
 
 @Configuration
-class WebClientConfig {
+class WebClientConfig(
     @Value("\${chatGpt.url}")
-    private lateinit var url: String
-
+    private val url: String,
     @Value("\${chatGpt.key}")
-    private lateinit var key: String
-
+    private val key: String,
     @Value("\${news.url}")
-    private lateinit var newsUrl: String
-
+    private val newsUrl: String,
     @Value("\${news.key}")
-    private lateinit var newsKey: String
-
-
+    private val newsKey: String,
+) {
     @Bean
     fun nasaClient(): WebClient {
         return WebClient.create()
