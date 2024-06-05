@@ -1,0 +1,43 @@
+name: nasa
+
+version: "3.8"
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+
+    image: nasa-image
+    ports:
+      - "8080:8080"
+    environment:
+      SPRING_DATASOURCZE_URL: jdbc:postgresql://db:5432/nasa
+      SPRING_DATASOURCE_USERNAME: nasa
+      SPRING_DATASOURCE_PASSWORD: password
+      SPRING_REDIS_HOST: redis
+      SPRING_REDIS_PORT: 6380
+    depends_on:
+      - db
+      - redis
+    networks:
+      - nasaNetwork
+  db:
+    image: postgres:latest
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_DB: nasa
+      POSTGRES_USER: nasa
+      POSTGRES_PASSWORD: password
+    networks:
+      - nasaNetwork
+  redis:
+    image: redis:latest
+    ports:
+      - "6379:6379"
+    networks:
+      - nasaNetwork
+
+networks:
+  nasaNetwork:
