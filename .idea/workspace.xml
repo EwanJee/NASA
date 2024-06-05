@@ -5,13 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="458b623f-7df7-43af-bd7f-8d1d70087454" name="Changes" comment="feat/news,articles 관련 클래스 변경">
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/project/nasa/adapter/in/web/apod/GptController.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/project/nasa/adapter/in/web/apod/GptController.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/project/nasa/adapter/out/persistence/service/apod/ApodAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/project/nasa/adapter/out/persistence/service/apod/ApodAdapter.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/project/nasa/adapter/out/persistence/service/apod/impl/ApodAdapterImpl.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/project/nasa/adapter/out/persistence/service/apod/impl/ApodAdapterImpl.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/project/nasa/adapter/out/sse/service/impl/CounterAdapterImpl.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/project/nasa/adapter/out/sse/service/impl/CounterAdapterImpl.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/project/nasa/application/port/in/dto/request/apod/RequestApod.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/project/nasa/application/port/in/dto/request/apod/RequestApod.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/project/nasa/application/port/in/dto/request/gpt/RequestBodyGPT.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/project/nasa/application/port/in/dto/request/gpt/RequestBodyGPT.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/project/nasa/application/port/in/dto/request/gpt/RequestGPT.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/project/nasa/application/port/in/dto/request/gpt/RequestGPT.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
     </list>
     <list id="3f4c1f5f-064d-4fd8-9cef-06ad7562e999" name="Changes by jack" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -38,36 +33,7 @@
             <expand>
               <path>
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="nasa" type="f1a62948:ProjectNode" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="nasa" type="f1a62948:ProjectNode" />
-                <item name="Tasks" type="e4a08cd1:TasksNode" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="nasa" type="f1a62948:ProjectNode" />
-                <item name="Tasks" type="e4a08cd1:TasksNode" />
-                <item name="build" type="c8890929:TasksNode$1" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="nasa" type="f1a62948:ProjectNode" />
-                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="nasa" type="f1a62948:ProjectNode" />
-                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
-                <item name="compileClasspath" type="62daadca:ExternalSystemViewDefaultContributor$DependencyScopeExternalSystemNode" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="nasa" type="f1a62948:ProjectNode" />
-                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
-                <item name="compileClasspath" type="62daadca:ExternalSystemViewDefaultContributor$DependencyScopeExternalSystemNode" />
-                <item name="org.ngrinder:ngrinder-groovy:3.5.9" type="b3323d55:ExternalSystemViewDefaultContributor$DependencyExternalSystemNode" />
+                <item name="todaynasa" type="f1a62948:ProjectNode" />
               </path>
             </expand>
             <select />
@@ -122,47 +88,48 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_MARK_IGNORED_FILES_AS_EXCLUDED&quot;: &quot;true&quot;,
-    &quot;Docker.docker-compose.yml.app: Compose Deployment.executor&quot;: &quot;Run&quot;,
-    &quot;Docker.docker-compose.yml.controller: Compose Deployment.executor&quot;: &quot;Run&quot;,
-    &quot;Docker.docker-compose.yml.redis: Compose Deployment.executor&quot;: &quot;Run&quot;,
-    &quot;Docker.docker-compose.yml: Compose Deployment.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.Build NASA.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.NASA [build].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.NASA [clean].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.NasaApplicationTests.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.aTest.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.test.test.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.TestRunner (1).executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.TestRunner.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.test.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.test.test01.executor&quot;: &quot;Run&quot;,
-    &quot;Kotlin script (Beta).build.gradle.kts.executor&quot;: &quot;Run&quot;,
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;Spring Boot.NasaApplication.executor&quot;: &quot;Run&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_directory_selection&quot;: &quot;/Users/jeeewan/GitHub/NASA/src/main/kotlin&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/jeeewan/GitHub/NASA&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15917969&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.ktlint-plugin&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_MARK_IGNORED_FILES_AS_EXCLUDED": "true",
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Docker.docker-compose.yml.app: Compose Deployment.executor": "Run",
+    "Docker.docker-compose.yml.controller: Compose Deployment.executor": "Run",
+    "Docker.docker-compose.yml.redis: Compose Deployment.executor": "Run",
+    "Docker.docker-compose.yml: Compose Deployment.executor": "Run",
+    "Gradle.Build NASA.executor": "Run",
+    "Gradle.NASA [build].executor": "Run",
+    "Gradle.NASA [clean].executor": "Run",
+    "Gradle.NasaApplicationTests.executor": "Run",
+    "Gradle.aTest.executor": "Run",
+    "Gradle.test.test.executor": "Run",
+    "JUnit.TestRunner (1).executor": "Run",
+    "JUnit.TestRunner.executor": "Run",
+    "JUnit.test.executor": "Run",
+    "JUnit.test.test01.executor": "Run",
+    "Kotlin script (Beta).build.gradle.kts.executor": "Run",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "Spring Boot.NasaApplication.executor": "Run",
+    "Spring Boot.TodaynasaApplication.executor": "Run",
+    "kotlin-language-version-configured": "true",
+    "last_directory_selection": "/Users/jeeewan/GitHub/NASA/src/main/kotlin",
+    "last_opened_file_path": "/Users/jeeewan/GitHub/NASA",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15917969",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.ktlint-plugin",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/kotlin/com/project/nasa" />
@@ -178,7 +145,7 @@
       <recent name="com.project.nasa.setting.adapter.out.persistence.repository.member" />
     </key>
   </component>
-  <component name="RunManager" selected="Spring Boot.NasaApplication">
+  <component name="RunManager" selected="Gradle.NASA [build]">
     <configuration name="NASA [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -219,6 +186,28 @@
       <option name="METHOD_NAME" value="" />
       <option name="TEST_OBJECT" value="class" />
       <option name="VM_PARAMETERS" value="-javaagent:$USER_HOME$/.gradle/caches/modules-2/files-2.1/net.sf.grinder/grinder-dcr-agent/3.9.1/37607dc5d7192b652e5dec8394a0334b4d3a63d2/grinder-dcr-agent-3.9.1.jar" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestRunner" type="JUnit" factoryName="JUnit" nameIsGenerated="true">
+      <module name="nasa.test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.project.nasa.ngrind.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <extension name="software.aws.toolkits.jetbrains.core.execution.JavaAwsConnectionExtension">
+        <option name="credential" />
+        <option name="region" />
+        <option name="useCurrentConnection" value="false" />
+      </extension>
+      <option name="PACKAGE_NAME" value="com.project.nasa.ngrind" />
+      <option name="MAIN_CLASS_NAME" value="com.project.nasa.ngrind.TestRunner" />
+      <option name="METHOD_NAME" value="" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="javaagent:$USER_HOME$/.gradle/caches/modules-2/files-2.1/net.sf.grinder/grinder-dcr-agent/3.9.1/37607dc5d7192b652e5dec8394a0334b4d3a63d2/grinder-dcr-agent-3.9.1.jar" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -399,28 +388,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TestRunner" type="JUnit" factoryName="JUnit" nameIsGenerated="true">
-      <module name="nasa.test" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.project.nasa.ngrind.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <extension name="software.aws.toolkits.jetbrains.core.execution.JavaAwsConnectionExtension">
-        <option name="credential" />
-        <option name="region" />
-        <option name="useCurrentConnection" value="false" />
-      </extension>
-      <option name="PACKAGE_NAME" value="com.project.nasa.ngrind" />
-      <option name="MAIN_CLASS_NAME" value="com.project.nasa.ngrind.TestRunner" />
-      <option name="METHOD_NAME" value="" />
-      <option name="TEST_OBJECT" value="class" />
-      <option name="VM_PARAMETERS" value="javaagent:$USER_HOME$/.gradle/caches/modules-2/files-2.1/net.sf.grinder/grinder-dcr-agent/3.9.1/37607dc5d7192b652e5dec8394a0334b4d3a63d2/grinder-dcr-agent-3.9.1.jar" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="nasa.test" />
       <extension name="coverage">
@@ -483,6 +450,14 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="TodaynasaApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
+      <module name="todaynasa.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.nasa.todaynasa.TodaynasaApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration default="true" type="docker-deploy" factoryName="docker-compose.yml" temporary="true">
       <deployment type="docker-compose.yml">
         <settings />
@@ -498,6 +473,13 @@
         <item itemvalue="JUnit.test" />
       </list>
     </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="jdk-21.0.1-openjdk-21.0.1-4caba194b151-9b16c6e2" />
+      </set>
+    </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -539,6 +521,7 @@
       <workItem from="1717583723331" duration="20000" />
       <workItem from="1717583744842" duration="20000" />
       <workItem from="1717583772972" duration="234000" />
+      <workItem from="1717584406452" duration="1670000" />
     </task>
     <task id="LOCAL-00001" summary="build">
       <option name="closed" value="true" />
