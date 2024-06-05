@@ -1,0 +1,610 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="458b623f-7df7-43af-bd7f-8d1d70087454" name="Changes" comment="feat/news,articles 관련 클래스 변경">
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/project/nasa/adapter/in/web/apod/GptController.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/project/nasa/adapter/in/web/apod/GptController.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/project/nasa/adapter/out/persistence/service/apod/ApodAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/project/nasa/adapter/out/persistence/service/apod/ApodAdapter.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/project/nasa/adapter/out/persistence/service/apod/impl/ApodAdapterImpl.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/project/nasa/adapter/out/persistence/service/apod/impl/ApodAdapterImpl.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/project/nasa/adapter/out/sse/service/impl/CounterAdapterImpl.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/project/nasa/adapter/out/sse/service/impl/CounterAdapterImpl.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/project/nasa/application/port/in/dto/request/apod/RequestApod.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/project/nasa/application/port/in/dto/request/apod/RequestApod.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/project/nasa/application/port/in/dto/request/gpt/RequestBodyGPT.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/project/nasa/application/port/in/dto/request/gpt/RequestBodyGPT.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/project/nasa/application/port/in/dto/request/gpt/RequestGPT.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/project/nasa/application/port/in/dto/request/gpt/RequestGPT.kt" afterDir="false" />
+    </list>
+    <list id="3f4c1f5f-064d-4fd8-9cef-06ad7562e999" name="Changes by jack" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <task path="$PROJECT_DIR$/nasa">
+          <activation />
+        </task>
+        <task path="$PROJECT_DIR$">
+          <activation />
+        </task>
+        <projects_view>
+          <tree_state>
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="nasa" type="f1a62948:ProjectNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="nasa" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="nasa" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="build" type="c8890929:TasksNode$1" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="nasa" type="f1a62948:ProjectNode" />
+                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="nasa" type="f1a62948:ProjectNode" />
+                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
+                <item name="compileClasspath" type="62daadca:ExternalSystemViewDefaultContributor$DependencyScopeExternalSystemNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="nasa" type="f1a62948:ProjectNode" />
+                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
+                <item name="compileClasspath" type="62daadca:ExternalSystemViewDefaultContributor$DependencyScopeExternalSystemNode" />
+                <item name="org.ngrinder:ngrinder-groovy:3.5.9" type="b3323d55:ExternalSystemViewDefaultContributor$DependencyExternalSystemNode" />
+              </path>
+            </expand>
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="package-info" />
+        <option value="Kotlin File" />
+        <option value="Kotlin Enum" />
+        <option value="Kotlin Interface" />
+        <option value="Class" />
+        <option value="Kotlin Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;EwanJee&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="4ad9d2eb-572e-41ba-8530-33dccf235587" />
+        <option name="url" value="https://github.com/EwanJee/NASA.git" />
+      </UrlAndAccount>
+    </option>
+  </component>
+  <component name="JpbToolWindowState">
+    <option name="isToolWindowVisible" value="false" />
+  </component>
+  <component name="KubernetesApiProvider">{
+  &quot;isMigrated&quot;: true
+}</component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 1
+}</component>
+  <component name="ProjectId" id="2eLfynW2bi5YUJtgvZmfwE2Z95e" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_MARK_IGNORED_FILES_AS_EXCLUDED&quot;: &quot;true&quot;,
+    &quot;Docker.docker-compose.yml.app: Compose Deployment.executor&quot;: &quot;Run&quot;,
+    &quot;Docker.docker-compose.yml.controller: Compose Deployment.executor&quot;: &quot;Run&quot;,
+    &quot;Docker.docker-compose.yml.redis: Compose Deployment.executor&quot;: &quot;Run&quot;,
+    &quot;Docker.docker-compose.yml: Compose Deployment.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.Build NASA.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.NASA [build].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.NASA [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.NasaApplicationTests.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.aTest.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.test.test.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.TestRunner (1).executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.TestRunner.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.test.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.test.test01.executor&quot;: &quot;Run&quot;,
+    &quot;Kotlin script (Beta).build.gradle.kts.executor&quot;: &quot;Run&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;Spring Boot.NasaApplication.executor&quot;: &quot;Run&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_directory_selection&quot;: &quot;/Users/jeeewan/GitHub/NASA/src/main/kotlin&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/jeeewan/GitHub/NASA&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15917969&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.ktlint-plugin&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/kotlin/com/project/nasa" />
+      <recent name="$PROJECT_DIR$/src/main/kotlin/com/project/nasa/application" />
+      <recent name="$PROJECT_DIR$/src/main/kotlin/com/project/nasa/" />
+      <recent name="$PROJECT_DIR$/src/main/kotlin/com/project/nasa/setting/application/port/in/dto/request/gpt" />
+    </key>
+    <key name="MoveKotlinTopLevelDeclarationsDialog.RECENTS_KEY">
+      <recent name="com.project.nasa.setting.adapter.in.web.member.dto" />
+      <recent name="com.project.nasa.setting.adapter.in.web.member" />
+      <recent name="com.project.nasa.setting.adapter.out.persistence.entity.member" />
+      <recent name="com.project.nasa.setting.adapter.in.web.apod.dto.request" />
+      <recent name="com.project.nasa.setting.adapter.out.persistence.repository.member" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Spring Boot.NasaApplication">
+    <configuration name="NASA [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="build" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>false</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="TestRunner" type="JUnit" factoryName="JUnit" nameIsGenerated="true">
+      <module name="nasa.test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.project.nasa.ngrind.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <extension name="software.aws.toolkits.jetbrains.core.execution.JavaAwsConnectionExtension">
+        <option name="credential" />
+        <option name="region" />
+        <option name="useCurrentConnection" value="false" />
+      </extension>
+      <option name="PACKAGE_NAME" value="com.project.nasa.ngrind" />
+      <option name="MAIN_CLASS_NAME" value="com.project.nasa.ngrind.TestRunner" />
+      <option name="METHOD_NAME" value="" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-javaagent:$USER_HOME$/.gradle/caches/modules-2/files-2.1/net.sf.grinder/grinder-dcr-agent/3.9.1/37607dc5d7192b652e5dec8394a0334b4d3a63d2/grinder-dcr-agent-3.9.1.jar" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestRunner" type="JUnit" factoryName="JUnit" nameIsGenerated="true">
+      <module name="nasa.test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.project.nasa.ngrind.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <extension name="software.aws.toolkits.jetbrains.core.execution.JavaAwsConnectionExtension">
+        <option name="credential" />
+        <option name="region" />
+        <option name="useCurrentConnection" value="false" />
+      </extension>
+      <option name="PACKAGE_NAME" value="com.project.nasa.ngrind" />
+      <option name="MAIN_CLASS_NAME" value="com.project.nasa.ngrind.TestRunner" />
+      <option name="METHOD_NAME" value="" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-javaagent:$USER_HOME$/.gradle/caches/modules-2/files-2.1/net.sf.grinder/grinder-dcr-agent/3.9.1/37607dc5d7192b652e5dec8394a0334b4d3a63d2/grinder-dcr-agent-3.9.1.jar" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestRunner" type="JUnit" factoryName="JUnit">
+      <module name="nasa.test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.project.nasa.ngrind.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <extension name="software.aws.toolkits.jetbrains.core.execution.JavaAwsConnectionExtension">
+        <option name="credential" />
+        <option name="region" />
+        <option name="useCurrentConnection" value="false" />
+      </extension>
+      <option name="PACKAGE_NAME" value="com.project.nasa.ngrind" />
+      <option name="MAIN_CLASS_NAME" value="com.project.nasa.ngrind.TestRunner" />
+      <option name="METHOD_NAME" value="" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-javaagent:$USER_HOME$/.gradle/caches/modules-2/files-2.1/net.sf.grinder/grinder-dcr-agent/3.9.1/37607dc5d7192b652e5dec8394a0334b4d3a63d2/grinder-dcr-agent-3.9.1.jar" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestRunner" type="JUnit" factoryName="JUnit" temporary="true">
+      <module name="nasa.test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.project.nasa.ngrind.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <extension name="software.aws.toolkits.jetbrains.core.execution.JavaAwsConnectionExtension">
+        <option name="credential" />
+        <option name="region" />
+        <option name="useCurrentConnection" value="false" />
+      </extension>
+      <option name="PACKAGE_NAME" value="com.project.nasa.ngrind" />
+      <option name="MAIN_CLASS_NAME" value="com.project.nasa.ngrind.TestRunner" />
+      <option name="METHOD_NAME" value="" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-javaagent:$USER_HOME$/.gradle/caches/modules-2/files-2.1/net.sf.grinder/grinder-dcr-agent/3.9.1/37607dc5d7192b652e5dec8394a0334b4d3a63d2/grinder-dcr-agent-3.9.1.jar" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestRunner" type="JUnit" factoryName="JUnit" nameIsGenerated="true">
+      <module name="nasa.test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.project.nasa.ngrind.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <extension name="software.aws.toolkits.jetbrains.core.execution.JavaAwsConnectionExtension">
+        <option name="credential" />
+        <option name="region" />
+        <option name="useCurrentConnection" value="false" />
+      </extension>
+      <option name="PACKAGE_NAME" value="com.project.nasa.ngrind" />
+      <option name="MAIN_CLASS_NAME" value="com.project.nasa.ngrind.TestRunner" />
+      <option name="METHOD_NAME" value="" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-javaagent:$USER_HOME$/.gradle/caches/modules-2/files-2.1/net.sf.grinder/grinder-dcr-agent/3.9.1/37607dc5d7192b652e5dec8394a0334b4d3a63d2/grinder-dcr-agent-3.9.1.jar$ClipboardContent$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestRunner" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="nasa.test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.project.nasa.ngrind.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <extension name="software.aws.toolkits.jetbrains.core.execution.JavaAwsConnectionExtension">
+        <option name="credential" />
+        <option name="region" />
+        <option name="useCurrentConnection" value="false" />
+      </extension>
+      <option name="PACKAGE_NAME" value="com.project.nasa.ngrind" />
+      <option name="MAIN_CLASS_NAME" value="com.project.nasa.ngrind.TestRunner" />
+      <option name="METHOD_NAME" value="" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-javaagent:$USER_HOME$/.gradle/caches/modules-2/files-2.1/net.sf.grinder/grinder-dcr-agent/3.9.1/37607dc5d7192b652e5dec8394a0334b4d3a63d2/grinder-dcr-agent-3.9.1.jar" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestRunner" type="JUnit" factoryName="JUnit" nameIsGenerated="true">
+      <module name="nasa.test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.project.nasa.ngrind.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <extension name="software.aws.toolkits.jetbrains.core.execution.JavaAwsConnectionExtension">
+        <option name="credential" />
+        <option name="region" />
+        <option name="useCurrentConnection" value="false" />
+      </extension>
+      <option name="PACKAGE_NAME" value="com.project.nasa.ngrind" />
+      <option name="MAIN_CLASS_NAME" value="com.project.nasa.ngrind.TestRunner" />
+      <option name="METHOD_NAME" value="" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-javaagent:$USER_HOME$/.gradle/caches/modules-2/files-2.1/net.sf.grinder/grinder-dcr-agent/3.9.1/37607dc5d7192b652e5dec8394a0334b4d3a63d2/grinder-dcr-agent-3.9.1.jar" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestRunner" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="nasa.test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.project.nasa.ngrind.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <extension name="software.aws.toolkits.jetbrains.core.execution.JavaAwsConnectionExtension">
+        <option name="credential" />
+        <option name="region" />
+        <option name="useCurrentConnection" value="false" />
+      </extension>
+      <option name="PACKAGE_NAME" value="com.project.nasa.ngrind" />
+      <option name="MAIN_CLASS_NAME" value="com.project.nasa.ngrind.TestRunner" />
+      <option name="METHOD_NAME" value="" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-javaagent:$USER_HOME$/.gradle/caches/modules-2/files-2.1/net.sf.grinder/grinder-dcr-agent/3.9.1/37607dc5d7192b652e5dec8394a0334b4d3a63d2/grinder-dcr-agent-3.9.1.jar" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestRunner" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="nasa.test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.project.nasa.ngrind.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <extension name="software.aws.toolkits.jetbrains.core.execution.JavaAwsConnectionExtension">
+        <option name="credential" />
+        <option name="region" />
+        <option name="useCurrentConnection" value="false" />
+      </extension>
+      <option name="PACKAGE_NAME" value="com.project.nasa.ngrind" />
+      <option name="MAIN_CLASS_NAME" value="com.project.nasa.ngrind.TestRunner" />
+      <option name="METHOD_NAME" value="" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea -javaagent:$USER_HOME$/.gradle/caches/modules-2/files-2.1/net.sf.grinder/grinder-dcr-agent/3.9.1/37607dc5d7192b652e5dec8394a0334b4d3a63d2/grinder-dcr-agent-3.9.1.jar" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestRunner" type="JUnit" factoryName="JUnit" nameIsGenerated="true">
+      <module name="nasa.test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.project.nasa.ngrind.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <extension name="software.aws.toolkits.jetbrains.core.execution.JavaAwsConnectionExtension">
+        <option name="credential" />
+        <option name="region" />
+        <option name="useCurrentConnection" value="false" />
+      </extension>
+      <option name="PACKAGE_NAME" value="com.project.nasa.ngrind" />
+      <option name="MAIN_CLASS_NAME" value="com.project.nasa.ngrind.TestRunner" />
+      <option name="METHOD_NAME" value="" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="javaagent:$USER_HOME$/.gradle/caches/modules-2/files-2.1/net.sf.grinder/grinder-dcr-agent/3.9.1/37607dc5d7192b652e5dec8394a0334b4d3a63d2/grinder-dcr-agent-3.9.1.jar" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="nasa.test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.project.nasa.ngrind.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <extension name="software.aws.toolkits.jetbrains.core.execution.JavaAwsConnectionExtension">
+        <option name="credential" />
+        <option name="region" />
+        <option name="useCurrentConnection" value="false" />
+      </extension>
+      <option name="PACKAGE_NAME" value="com.project.nasa.ngrind" />
+      <option name="MAIN_CLASS_NAME" value="com.project.nasa.ngrind.test" />
+      <option name="METHOD_NAME" value="" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-javaagent:$USER_HOME$/.gradle/caches/modules-2/files-2.1/net.sf.grinder/grinder-dcr-agent/3.9.1/37607dc5d7192b652e5dec8394a0334b4d3a63d2/grinder-dcr-agent-3.9.1.jar" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="test.test01" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="nasa.test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.project.nasa.ngrind.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.project.nasa.ngrind" />
+      <option name="MAIN_CLASS_NAME" value="com.project.nasa.ngrind.test" />
+      <option name="METHOD_NAME" value="test01" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="build.gradle.kts" type="KotlinStandaloneScriptRunConfigurationType" temporary="true" nameIsGenerated="true">
+      <module name="nasa" />
+      <option name="filePath" value="$PROJECT_DIR$/build.gradle.kts" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="NasaApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <option name="ACTIVE_PROFILES" value="docker" />
+      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
+      <module name="nasa.main" />
+      <projectPathOnTarget name="projectPathOnTarget" value="/app" />
+      <target name="@@@LOCAL@@@" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.project.nasa.NasaApplication" />
+      <option name="VM_PARAMETERS" value="-javaagent:$USER_HOME$/.gradle/caches/modules-2/files-2.1/net.sf.grinder/grinder-dcr-agent/3.9.1/37607dc5d7192b652e5dec8394a0334b4d3a63d2/grinder-dcr-agent-3.9.1.jar" />
+      <extension name="software.aws.toolkits.jetbrains.core.execution.JavaAwsConnectionExtension">
+        <option name="credential" />
+        <option name="region" />
+        <option name="useCurrentConnection" value="false" />
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="docker-deploy" factoryName="docker-compose.yml" temporary="true">
+      <deployment type="docker-compose.yml">
+        <settings />
+      </deployment>
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Gradle.NASA [build]" />
+        <item itemvalue="Kotlin script (Beta).build.gradle.kts" />
+        <item itemvalue="JUnit.TestRunner" />
+        <item itemvalue="JUnit.TestRunner" />
+        <item itemvalue="JUnit.test" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="458b623f-7df7-43af-bd7f-8d1d70087454" name="Changes" comment="" />
+      <created>1711689038933</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1711689038933</updated>
+      <workItem from="1711689040037" duration="808000" />
+      <workItem from="1711690487189" duration="2008000" />
+      <workItem from="1711776027747" duration="4811000" />
+      <workItem from="1711813323156" duration="699000" />
+      <workItem from="1711814143423" duration="16000" />
+      <workItem from="1711860598123" duration="684000" />
+      <workItem from="1711916616411" duration="16192000" />
+      <workItem from="1712023997666" duration="3555000" />
+      <workItem from="1712067610808" duration="24387000" />
+      <workItem from="1712286697649" duration="4962000" />
+      <workItem from="1712331870398" duration="11776000" />
+      <workItem from="1712362651428" duration="55000" />
+      <workItem from="1712433045868" duration="5696000" />
+      <workItem from="1712965157195" duration="1824000" />
+      <workItem from="1712967307082" duration="16000" />
+      <workItem from="1713059201334" duration="6298000" />
+      <workItem from="1713097328009" duration="14575000" />
+      <workItem from="1713230823248" duration="4674000" />
+      <workItem from="1713320067933" duration="7886000" />
+      <workItem from="1713383753351" duration="6674000" />
+      <workItem from="1713390437683" duration="216000" />
+      <workItem from="1713390667240" duration="4073000" />
+      <workItem from="1713394758459" duration="444000" />
+      <workItem from="1713404607959" duration="3153000" />
+      <workItem from="1715490283367" duration="4854000" />
+      <workItem from="1715905642859" duration="1975000" />
+      <workItem from="1716694427887" duration="1000" />
+      <workItem from="1717575670820" duration="89000" />
+      <workItem from="1717575764075" duration="1399000" />
+      <workItem from="1717583723331" duration="20000" />
+      <workItem from="1717583744842" duration="20000" />
+      <workItem from="1717583772972" duration="234000" />
+    </task>
+    <task id="LOCAL-00001" summary="build">
+      <option name="closed" value="true" />
+      <created>1711690595753</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1711690595753</updated>
+    </task>
+    <task id="LOCAL-00002" summary="build">
+      <option name="closed" value="true" />
+      <created>1711690745397</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1711690745397</updated>
+    </task>
+    <task id="LOCAL-00003" summary="edit/usecase">
+      <option name="closed" value="true" />
+      <created>1711691384135</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1711691384135</updated>
+    </task>
+    <task id="LOCAL-00004" summary="edit/controller">
+      <option name="closed" value="true" />
+      <created>1711691828886</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1711691828886</updated>
+    </task>
+    <task id="LOCAL-00005" summary="add /">
+      <option name="closed" value="true" />
+      <created>1711692333202</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1711692333202</updated>
+    </task>
+    <task id="LOCAL-00006" summary="feat/news,articles 관련 클래스 변경">
+      <option name="closed" value="true" />
+      <created>1711780797140</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1711780797140</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="build" />
+    <MESSAGE value="edit/usecase" />
+    <MESSAGE value="edit/controller" />
+    <MESSAGE value="add /" />
+    <MESSAGE value="feat?news,articles 관련 클래스 변경" />
+    <MESSAGE value="feat/news,articles 관련 클래스 변경" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat/news,articles 관련 클래스 변경" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>
