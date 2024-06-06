@@ -40,8 +40,3 @@ springdoc:
 server:
   error:
     include-stacktrace: never
-
-# configuration 로그 설정
-logging:
-  level:
-    org.springframework.boot.autoconfigure: DEBUG

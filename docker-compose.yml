@@ -10,13 +10,13 @@ services:
 
     image: nasa-image
     ports:
-      - "8080:8080"
+      - "8081:8081"
     environment:
       SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/nasa
       SPRING_DATASOURCE_USERNAME: nasa
       SPRING_DATASOURCE_PASSWORD: password
       SPRING_REDIS_HOST: redis
-      SPRING_REDIS_PORT: 6380
+      SPRING_REDIS_PORT: 6379
     depends_on:
       - db
       - redis
