@@ -272,8 +272,6 @@ gradle-app.setting
 ### Gradle Patch ###
 # Java heap dump
 *.hprof
-
-out
 build
 .idea
 gradle
