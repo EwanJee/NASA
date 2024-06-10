@@ -49,6 +49,15 @@ dependencies {
     testImplementation("io.projectreactor:reactor-test")
     testImplementation("org.jetbrains.kotlin:kotlin-test-junit5")
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
+    // querydsl
+    implementation("com.querydsl:querydsl-jpa:5.0.0:jakarta")
+    implementation("com.querydsl:querydsl-apt:5.0.0:jakarta")
+    implementation("jakarta.persistence:jakarta.persistence-api")
+    implementation("jakarta.annotation:jakarta.annotation-api")
+    kapt("com.querydsl:querydsl-apt:5.0.0:jakarta")
+    kapt("org.springframework.boot:spring-boot-configuration-processor")
+    // swagger UI
+    implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:2.0.2")
 }
 
 kotlin {
