@@ -1,4 +1,4 @@
-package com.nasa.todaynasa.configuration
+package com.nasa.todaynasa.configuration.querydsl
 
 import com.querydsl.jpa.impl.JPAQueryFactory
 import jakarta.persistence.EntityManager
