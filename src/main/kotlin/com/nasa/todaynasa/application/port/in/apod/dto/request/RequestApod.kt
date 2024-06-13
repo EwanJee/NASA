@@ -1,5 +1,5 @@
 @file:Suppress("ktlint:standard:annotation", "ktlint:standard:package-name")
-package com.nasa.todaynasa.adapter.`in`.web.apod.dto.request
+package com.nasa.todaynasa.application.port.`in`.apod.dto.request
 
 import java.time.LocalDate
 
