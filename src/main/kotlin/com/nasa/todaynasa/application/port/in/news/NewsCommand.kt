@@ -2,4 +2,11 @@
 
 package com.nasa.todaynasa.application.port.`in`.news
 
-interface NewsCommand
+import java.time.LocalDate
+
+interface NewsCommand {
+    suspend fun getNewsByTopicAndDate(
+        topic: String,
+        date: LocalDate,
+    )
+}
