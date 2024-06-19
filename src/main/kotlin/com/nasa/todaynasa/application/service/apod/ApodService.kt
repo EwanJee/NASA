@@ -10,6 +10,8 @@ class ApodService(
     val apodCommandPort: ApodCommandPort,
 ) : ApodCommand {
     override fun getApodByDate(date: LocalDate) {
-        TODO("Not yet implemented")
+        if (apodCommandPort.existsByDate(date)) {
+            val apodEntity = apodCommandPort.getApodByDate(date)
+        }
     }
 }
