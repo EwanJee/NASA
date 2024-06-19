@@ -19,6 +19,7 @@ class ApodService(
     private val nasaClient: WebClient,
     private val gptClient: WebClient,
 ) : ApodCommand {
+    // apod 와 한국 번역문 제시
     override suspend fun getApodByDate(date: LocalDate): Apod {
         val apodEntity = apodCommandPort.getApodByDate(date)
         if (apodEntity != null) {
