@@ -9,5 +9,5 @@ class Apod(
     val title: String,
     val url: String,
     val hdurl: String,
-    val translatedExplanation: String?,
+    var translatedExplanation: String,
 )

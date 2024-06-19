@@ -22,15 +22,15 @@ import java.time.LocalDate
 class ApodController(
     private val apodCommand: ApodCommand,
 ) {
-    @Operation(summary = "APOD 받기", description = "APOD = Astronomy Picture of the Day")
+    @Operation(summary = "APOD 받기", description = "영문 & 한국 설명문이 포함된 apod 제시")
     @Description("API로부터 APOD를 받고 DB에 저장한다")
     @GetMapping("/apod")
-    suspend fun getApodByDate(
+    suspend fun showApodByDate(
         @RequestParam("date") date: LocalDate,
     ): ResponseEntity<EntityModel<Apod>> {
         val apod = apodCommand.getApodByDate(date)
         val resource = EntityModel.of(apod)
-        val link = WebMvcLinkBuilder.linkTo(WebMvcLinkBuilder.methodOn(ApodController::class.java).getApodByDate(date))
+        val link = WebMvcLinkBuilder.linkTo(WebMvcLinkBuilder.methodOn(ApodController::class.java))
         resource.add(link.withRel("self"))
         return ResponseEntity.ok(resource)
     }

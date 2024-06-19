@@ -1,6 +1,6 @@
 @file:Suppress("ktlint:standard:annotation", "ktlint:standard:package-name")
 
-package com.nasa.todaynasa.application.port.`in`.apod.dto.request
+package com.nasa.todaynasa.application.service.apod.request.apod
 
 import com.nasa.todaynasa.domain.Apod
 import java.time.LocalDate
@@ -15,7 +15,10 @@ data class RequestApod(
     val hdurl: String,
 ) {
     companion object {
-        fun from(requestApod: RequestApod): Apod =
+        fun of(
+            requestApod: RequestApod,
+            translated: String,
+        ): Apod =
             Apod(
                 date = requestApod.date,
                 explanation = requestApod.explanation,
@@ -23,7 +26,7 @@ data class RequestApod(
                 title = requestApod.title,
                 url = requestApod.url,
                 hdurl = requestApod.hdurl,
-                translatedExplanation = null,
+                translatedExplanation = translated,
             )
     }
 }
