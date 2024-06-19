@@ -2,6 +2,7 @@
 
 package com.nasa.todaynasa.adapter.out.persistence.apod
 
+import com.nasa.todaynasa.domain.Apod
 import jakarta.annotation.Nullable
 import jakarta.persistence.*
 import java.time.LocalDate
@@ -36,4 +37,17 @@ class ApodEntity(
     @Nullable
     @Column(length = 2000)
     var translatedExplanation: String? = null
+
+    companion object {
+        fun from(apodEntity: ApodEntity): Apod =
+            Apod(
+                date = apodEntity.date,
+                explanation = apodEntity.explanation,
+                mediaType = apodEntity.mediaType,
+                title = apodEntity.title,
+                url = apodEntity.url,
+                hdurl = apodEntity.hdurl,
+                translatedExplanation = apodEntity.translatedExplanation,
+            )
+    }
 }

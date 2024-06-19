@@ -3,6 +3,7 @@
 package com.nasa.todaynasa.adapter.`in`.web.apod
 
 import com.nasa.todaynasa.application.port.`in`.apod.ApodCommand
+import com.nasa.todaynasa.domain.Apod
 import io.swagger.v3.oas.annotations.Operation
 import io.swagger.v3.oas.annotations.tags.Tag
 import org.springframework.context.annotation.Description
@@ -19,16 +20,16 @@ import java.time.LocalDate
 @RequestMapping("/api/v1/apod")
 @RestController
 class ApodController(
-    val apodCommand: ApodCommand,
+    private val apodCommand: ApodCommand,
 ) {
     @Operation(summary = "APOD 받기", description = "APOD = Astronomy Picture of the Day")
     @Description("API로부터 APOD를 받고 DB에 저장한다")
     @GetMapping("/apod")
-    fun getApodByDate(
+    suspend fun getApodByDate(
         @RequestParam("date") date: LocalDate,
-    ): ResponseEntity<EntityModel<*>> {
-        // TODO: apodCommand.getApodByDate(date)
-        val resource = EntityModel.of("APOD 데이터 받기 성공")
+    ): ResponseEntity<EntityModel<Apod>> {
+        val apod = apodCommand.getApodByDate(date)
+        val resource = EntityModel.of(apod)
         val link = WebMvcLinkBuilder.linkTo(WebMvcLinkBuilder.methodOn(ApodController::class.java).getApodByDate(date))
         resource.add(link.withRel("self"))
         return ResponseEntity.ok(resource)

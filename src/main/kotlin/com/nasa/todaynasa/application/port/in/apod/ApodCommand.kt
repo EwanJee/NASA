@@ -2,8 +2,9 @@
 
 package com.nasa.todaynasa.application.port.`in`.apod
 
+import com.nasa.todaynasa.domain.Apod
 import java.time.LocalDate
 
 interface ApodCommand {
-    fun getApodByDate(date: LocalDate)
+    suspend fun getApodByDate(date: LocalDate): Apod
 }
