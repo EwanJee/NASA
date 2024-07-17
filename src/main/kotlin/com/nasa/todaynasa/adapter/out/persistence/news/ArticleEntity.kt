@@ -6,14 +6,7 @@ import jakarta.persistence.*
 
 @Table(name = "article")
 @Entity
-open class ArticleEntity(
-    title: String,
-    description: String,
-    url: String,
-    urlToImage: String,
-    publishedAt: String,
-    content: String,
-) {
+class ArticleEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     var id: Long? = null
