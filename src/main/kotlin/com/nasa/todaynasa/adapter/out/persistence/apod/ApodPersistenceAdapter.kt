@@ -1,7 +1,7 @@
 package com.nasa.todaynasa.adapter.out.persistence.apod
 
 import com.nasa.todaynasa.adapter.out.persistence.apod.QApodEntity.apodEntity
-import com.nasa.todaynasa.application.port.out.apod.ApodCommandPort
+import com.nasa.todaynasa.application.port.out.apod.ApodQuery
 import com.nasa.todaynasa.domain.Apod
 import com.querydsl.jpa.impl.JPAQueryFactory
 import org.springframework.stereotype.Component
@@ -11,7 +11,7 @@ import java.time.LocalDate
 class ApodPersistenceAdapter(
     private val apodRepository: ApodRepository,
     private val queryFactory: JPAQueryFactory,
-) : ApodCommandPort {
+) : ApodQuery {
     override fun getApodByDate(date: LocalDate): ApodEntity? =
         queryFactory
             .selectFrom(apodEntity)

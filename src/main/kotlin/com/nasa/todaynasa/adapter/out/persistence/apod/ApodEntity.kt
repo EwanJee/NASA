@@ -42,23 +42,23 @@ class ApodEntity(
         fun from(apodEntity: ApodEntity): Apod =
             Apod(
                 date = apodEntity.date,
-                explanation = apodEntity.explanation,
+                explanationEN = apodEntity.explanation,
                 mediaType = apodEntity.mediaType,
                 title = apodEntity.title,
                 url = apodEntity.url,
                 hdurl = apodEntity.hdurl,
-                translatedExplanation = apodEntity.translatedExplanation,
+                explanationKR = apodEntity.translatedExplanation,
             )
 
         fun from(apod: Apod): ApodEntity =
             ApodEntity(
                 date = apod.date,
-                explanation = apod.explanation,
+                explanation = apod.explanationEN,
                 mediaType = apod.mediaType,
                 title = apod.title,
                 url = apod.url,
                 hdurl = apod.hdurl,
-                translatedExplanation = apod.translatedExplanation,
+                translatedExplanation = apod.explanationKR,
             )
     }
 }

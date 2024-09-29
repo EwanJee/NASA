@@ -7,7 +7,7 @@ import java.time.LocalDate
 
 data class RequestApod(
     val date: LocalDate,
-    val explanation: String,
+    val explanationEN: String,
     val media_type: String,
     val service_version: String,
     val title: String,
@@ -21,12 +21,12 @@ data class RequestApod(
         ): Apod =
             Apod(
                 date = requestApod.date,
-                explanation = requestApod.explanation,
+                explanationEN = requestApod.explanationEN,
                 mediaType = requestApod.media_type,
                 title = requestApod.title,
                 url = requestApod.url,
                 hdurl = requestApod.hdurl,
-                translatedExplanation = translated,
+                explanationKR = translated,
             )
     }
 }
