@@ -24,7 +24,7 @@ class ApodController(
 ) {
     @Operation(summary = "APOD 받기", description = "영문 & 한국 설명문이 포함된 apod 제시")
     @Description("API로부터 APOD를 받고 DB에 저장한다")
-    @GetMapping("/apod")
+    @GetMapping("")
     suspend fun showApodByDate(
         @RequestParam("date") date: LocalDate,
     ): ResponseEntity<EntityModel<Apod>> {
