@@ -2,6 +2,7 @@
 
 package com.nasa.todaynasa.adapter.out.persistence.apod
 
+import com.nasa.todaynasa.adapter.out.persistence.common.BaseEntity
 import com.nasa.todaynasa.domain.Apod
 import jakarta.persistence.*
 import java.time.LocalDate
@@ -16,7 +17,7 @@ class ApodEntity(
     url: String,
     hdurl: String,
     translatedExplanation: String,
-) {
+) : BaseEntity() {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     var id: Long? = null
