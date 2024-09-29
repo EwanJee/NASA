@@ -4,8 +4,8 @@ package com.nasa.todaynasa.adapter.out.persistence.member
 
 import jakarta.persistence.*
 
-@Entity
 @Table(name = "member")
+@Entity
 class MemberEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
