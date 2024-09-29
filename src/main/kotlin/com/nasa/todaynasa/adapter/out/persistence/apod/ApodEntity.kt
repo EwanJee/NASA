@@ -23,7 +23,7 @@ class ApodEntity(
         private set
     var date: LocalDate = date
         private set
-    var explanation: String = explanation
+    var explanationEN: String = explanation
         private set
     var mediaType: String = mediaType
         private set
@@ -35,19 +35,19 @@ class ApodEntity(
         private set
 
     @Column(length = 2000)
-    var translatedExplanation: String = translatedExplanation
+    var explanationKR: String = translatedExplanation
         private set
 
     companion object {
         fun from(apodEntity: ApodEntity): Apod =
             Apod(
                 date = apodEntity.date,
-                explanationEN = apodEntity.explanation,
+                explanationEN = apodEntity.explanationEN,
                 mediaType = apodEntity.mediaType,
                 title = apodEntity.title,
                 url = apodEntity.url,
                 hdurl = apodEntity.hdurl,
-                explanationKR = apodEntity.translatedExplanation,
+                explanationKR = apodEntity.explanationKR,
             )
 
         fun from(apod: Apod): ApodEntity =

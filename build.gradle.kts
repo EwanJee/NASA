@@ -58,6 +58,8 @@ dependencies {
     kapt("org.springframework.boot:spring-boot-configuration-processor")
     // swagger UI
     implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:2.0.2")
+    // serialization
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.7.1")
 }
 
 kotlin {

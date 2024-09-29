@@ -1,4 +1,4 @@
-package com.nasa.todaynasa.configuration.querydsl
+package com.nasa.todaynasa.infrastructure.configuration.querydsl
 
 import com.querydsl.jpa.impl.JPAQueryFactory
 import jakarta.persistence.EntityManager
@@ -10,7 +10,5 @@ class QueryDslConfig {
     val em: EntityManager? = null
 
     @Bean
-    fun queryFactory(): JPAQueryFactory {
-        return JPAQueryFactory(em)
-    }
+    fun queryFactory(): JPAQueryFactory = JPAQueryFactory(em)
 }

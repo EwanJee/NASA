@@ -1,4 +1,4 @@
-package com.nasa.todaynasa.configuration.redis
+package com.nasa.todaynasa.infrastructure.configuration.redis
 
 import org.springframework.boot.autoconfigure.data.redis.RedisProperties
 import org.springframework.context.annotation.Bean
@@ -30,5 +30,5 @@ class RedisConfig {
         }
 
     @Bean
-    fun likeOps(redisTemplate: RedisTemplate<String, String>): SetOperations<String, String> = redisTemplate.opsForSet()
+    fun setOps(redisTemplate: RedisTemplate<String, String>): SetOperations<String, String> = redisTemplate.opsForSet()
 }

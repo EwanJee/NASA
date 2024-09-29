@@ -1,4 +1,4 @@
-package com.nasa.todaynasa.configuration.webclient
+package com.nasa.todaynasa.infrastructure.configuration.webclient
 
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.context.annotation.Bean

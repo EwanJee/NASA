@@ -1,4 +1,4 @@
-package com.nasa.todaynasa.configuration.swagger
+package com.nasa.todaynasa.infrastructure.configuration.swagger
 
 import io.swagger.v3.oas.annotations.OpenAPIDefinition
 import io.swagger.v3.oas.annotations.info.Info

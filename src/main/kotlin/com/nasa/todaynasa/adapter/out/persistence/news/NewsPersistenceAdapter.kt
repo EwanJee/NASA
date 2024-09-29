@@ -1,10 +1,10 @@
 package com.nasa.todaynasa.adapter.out.persistence.news
 
 import com.nasa.todaynasa.application.port.out.news.NewsCommandPort
-import org.springframework.stereotype.Component
+import com.nasa.todaynasa.infrastructure.annotations.Adapter
 import java.time.LocalDate
 
-@Component
+@Adapter
 class NewsPersistenceAdapter : NewsCommandPort {
     override fun getNewsByTopicAndDate(
         topic: String,
