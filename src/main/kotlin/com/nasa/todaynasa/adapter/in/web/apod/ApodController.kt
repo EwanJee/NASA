@@ -10,7 +10,7 @@ import org.springframework.context.annotation.Description
 import org.springframework.hateoas.EntityModel
 import org.springframework.hateoas.server.mvc.WebMvcLinkBuilder
 import org.springframework.http.ResponseEntity
-import org.springframework.web.bind.annotation.GetMapping
+import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RequestParam
 import org.springframework.web.bind.annotation.RestController
@@ -24,7 +24,7 @@ class ApodController(
 ) {
     @Operation(summary = "APOD 받기", description = "영문 & 한국 설명문이 포함된 apod 제시")
     @Description("API로부터 APOD를 받고 DB에 저장한다")
-    @GetMapping("")
+    @PostMapping("")
     suspend fun showApodByDate(
         @RequestParam("date") date: LocalDate,
     ): ResponseEntity<EntityModel<Apod>> {
